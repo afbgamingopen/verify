@@ -89,3 +89,7 @@ h2 {
   text-align: center;
   padding: 0 var(--spacingEm-0-25);
 }
+
+.calccontent input {
+  color: white !important;
+}
