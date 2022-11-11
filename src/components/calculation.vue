@@ -11,6 +11,7 @@ const data = reactive({
   clientSeed: '',
   serverSeed: '',
   nonce: 1,
+  cursor: 0,
   resultPow: 0,
   result: 0,
   resultXS: '',

@@ -18,7 +18,7 @@ const index4 = [4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,2
     <div class="row-wrap">
       <h2
         style="">Casino Seeds to Bytes</h2>
-      <div class="scrollX"><span class="highlight" style="font-family: monospace;">HMAC_SHA256({{data.serverSeed}},{{data.clientSeed}}:{{data.nonce}}:0)</span>
+      <div class="scrollX"><span class="highlight" style="font-family: monospace;">HMAC_SHA256({{data.serverSeed}},{{data.clientSeed}}:{{data.nonce}}:{{data.cursor}})</span>
         <table>
           <tbody>
             <tr class="tr">
@@ -136,7 +136,7 @@ const index4 = [4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,2
 }
 
 h2 {
-  padding-top: 0.5em;
+  padding: 0.5em 0;
 }
 
 .highlight {
