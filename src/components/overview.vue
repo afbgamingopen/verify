@@ -22,10 +22,42 @@
               <code>fair result = operators input (hashed) + customers input</code>
           </pre>
           </p>
+          <h2>3rd Party Verification</h2>
+          <p>All bets are verifiable
+            Here and through 3rd party sites that are also open source validators. you can
+            Found them by googling, the list is some third party sites:
+          </p>
+            <ul class="list">
+                <li>
+                    <a href="https://www.devglan.com/online-tools/hmac-sha256-online" target="_blank"> 
+                        <span>
+                            https://www.devglan.com/online-tools/hmac-sha256-online 
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freeformatter.com/hmac-generator.html" target="_blank"> 
+                        <span>
+                            https://www.freeformatter.com/hmac-generator.html
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://codebeautify.org/hmac-generator" target="_blank"> 
+                        <span>
+                            https://codebeautify.org/hmac-generator
+                        </span>
+                    </a>
+                </li>
+            </ul>
       </div>
   </div>
 </template>
 
 <style scoped>
+
+ul.list {
+    padding: 1em;
+}
 
 </style>
