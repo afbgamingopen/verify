@@ -1,0 +1,200 @@
+/* color palette from <https://github.com/vuejs/theme> */
+:root {
+  --vt-c-white: #ffffff;
+  --vt-c-white-soft: #f8f8f8;
+  --vt-c-white-mute: #f2f2f2;
+
+  --vt-c-black: #181818;
+  --vt-c-black-soft: #222222;
+  --vt-c-black-mute: #282828;
+
+  --vt-c-indigo: #2c3e50;
+
+  --vt-c-divider-light-1: rgba(60, 60, 60, 0.29);
+  --vt-c-divider-light-2: rgba(60, 60, 60, 0.12);
+  --vt-c-divider-dark-1: rgba(84, 84, 84, 0.65);
+  --vt-c-divider-dark-2: rgba(84, 84, 84, 0.48);
+
+  --vt-c-text-light-1: var(--vt-c-indigo);
+  --vt-c-text-light-2: rgba(60, 60, 60, 0.66);
+  --vt-c-text-dark-1: var(--vt-c-white);
+  --vt-c-text-dark-2: rgba(235, 235, 235, 0.64);
+
+  --spacing-0-125: .125rem;
+  --spacing-0-25: .25rem;
+  --spacing-0-5: .5rem;
+  --spacing-0-75: .75rem;
+  --spacing-1: 1rem;
+  --spacing-1-25: 1.25rem;
+  --spacing-1-5: 1.5rem;
+  --spacing-1-75: 1.75rem;
+  --spacing-2: 2rem;
+  --spacing-2-25: 2.25rem;
+  --spacing-2-5: 2.5rem;
+  --spacing-2-75: 2.75rem;
+  --spacing-3: 3rem;
+  --spacing-3-25: 3.25rem;
+  --spacing-3-5: 3.5rem;
+  --spacing-3-75: 3.75rem;
+  --spacing-4: 4rem;
+  --spacing-4-25: 4.25rem;
+  --spacing-4-5: 4.5rem;
+  --spacing-4-75: 4.75rem;
+  --spacing-5: 5rem;
+  --spacingEm-0-125: .125em;
+  --spacingEm-0-25: .25em;
+  --spacingEm-0-5: .5em;
+  --spacingEm-0-75: .75em;
+  --spacingEm-1: 1em;
+  --spacingEm-1-25: 1.25em;
+  --spacingEm-1-5: 1.5em;
+  --spacingEm-1-75: 1.75em;
+  --spacingEm-2: 2em;
+  --spacingEm-2-5: 2.5em;
+  --spacingEm-3: 3em;
+  --spacingEm-3-5: 3.5em;
+  --spacingEm-4: 4em;
+  --spacingEm-4-5: 4.5em;
+  --spacingEm-5: 5em;
+  --border-radius-0-125: .125rem;
+  --border-radius-0-15: .15rem;
+  --border-radius-0-25: .25rem;
+  --border-radius-0-5: .5rem;
+  --borderWidth-1: 1px;
+  --borderWidth-2: 2px;
+  --borderWidth-4: 4px;
+  --borderWidth-8: 8px;
+
+  --blue-100: #D0E3F9;
+  --blue-200: #A1C8F3;
+  --blue-300: #72ACED;
+  --blue-400: #4391E7;
+  --blue-500: #1475E1;
+  --blue-600: #105EB4;
+  --blue-700: #0C4687;
+  --blue-800: #082F5A;
+  --blue-900: #04172D;
+  --red-100: #ffccd5;
+  --red-200: #ff8fa2;
+  --red-300: #ff5773;
+  --red-400: #ff1f44;
+  --red-400-0-2: rgba(255, 31, 68, .2);
+  --red-500: #fe2247;
+  --red-600: #b8001f;
+  --red-600-0-2: rgba(184, 0, 31, .2);
+  --red-700: #8a0017;
+  --red-800: #4d000d;
+  --red-900: #320109;
+  --purple-100: #dcccff;
+  --purple-200: #be8fff;
+  --purple-300: #b061ff;
+  --purple-400: #962eff;
+  --purple-500: #9000ff;
+  --purple-600: #7100c7;
+  --purple-700: #590099;
+  --purple-800: #2d004d;
+  --purple-900: #1e0132;
+  --green-100: #ccffcc;
+  --green-200: #8fff8f;
+  --green-300: #57ff57;
+  --green-400: #1fff20;
+  --green-500: #00e701;
+  --green-600: #00b801;
+  --green-700: #008a01;
+  --green-800: #004d00;
+  --green-900: #013e01;
+  --yellow-100: #fff2dd;
+  --yellow-200: #ffdeaa;
+  --yellow-300: #ffcc7b;
+  --yellow-400: #ffb949;
+  --yellow-500: #ff9d00;
+  --yellow-600: #cd7f01;
+  --yellow-700: #9c6000;
+  --yellow-800: #633d00;
+  --yellow-900: #301d00;
+  --grey-100: #d5dceb;
+  --grey-200: #b1bad3;
+  --grey-300: #557086;
+  --grey-350: #3d5564;
+  --grey-400: #2f4553;
+  --grey-500: #213743;
+  --grey-600: #1a2c38;
+  --grey-600-0-2: rgb(26, 44, 56, .2);
+  --grey-700: #0f212e;
+  --grey-800: #071d2a;
+  --grey-900: #071824;
+  --black: #000;
+
+}
+
+/* semantic color variables for this project */
+/* :root {
+  --color-background: var(--vt-c-white);
+  --color-background-soft: var(--vt-c-white-soft);
+  --color-background-mute: var(--vt-c-white-mute);
+
+  --color-border: var(--vt-c-divider-light-2);
+  --color-border-hover: var(--vt-c-divider-light-1);
+
+  --color-heading: var(--vt-c-text-light-1);
+  --color-text: var(--vt-c-text-light-1);
+
+  --section-gap: 160px;
+} */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: var(--vt-c-black);
+    --color-background-soft: var(--vt-c-black-soft);
+    --color-background-mute: var(--vt-c-black-mute);
+
+    --color-border: var(--vt-c-divider-dark-2);
+    --color-border-hover: var(--vt-c-divider-dark-1);
+
+    --color-heading: var(--vt-c-text-dark-1);
+    --color-text: var(--vt-c-text-dark-2);
+  }
+}
+
+html.dark {
+  --el-text-color-regular: var(--grey-200);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  position: relative;
+  font-weight: normal;
+}
+
+body {
+  min-height: 100vh;
+  color: var(--color-text);
+  background: var(--color-background);
+  transition: color 0.5s, background-color 0.5s;
+  line-height: 1.6;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
+    Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  font-size: 15px;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::-webkit-scrollbar {
+  height: 5px;
+  width: 5px;
+  background: #000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #69694c;
+  -webkit-border-radius: 1ex;
+  -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.75);
+}
+
+::-webkit-scrollbar-corner {
+  background: #000;
+}

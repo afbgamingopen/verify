@@ -1,0 +1,89 @@
+@import './base.css';
+
+#app {
+  max-width: 1280px;
+  padding: 2rem;
+  font-weight: normal;
+  margin: 0 auto;
+}
+
+@media (max-width: 1024px) {
+  #app {
+    padding: 0;
+  }
+}
+
+a,
+.green {
+  text-decoration: none;
+  color: hsla(160, 100%, 37%, 1);
+  transition: 0.4s;
+}
+
+@media (hover: hover) {
+  a:hover {
+    background-color: hsla(160, 100%, 37%, 0.2);
+  }
+}
+
+.el-tabs__item {
+  font-size: var(--el-font-size-medium);
+}
+
+.content {
+  min-height: 60vh;
+}
+
+.content pre {
+  display: flex;
+  flex-direction: column;
+  overflow-x: auto;
+  padding: 1.25rem;
+  background: #213743;
+  border-radius: .25rem;
+  color: #fff;
+  margin: 1em 0;
+}
+
+.content code {
+  font-family: monospace,monospace;
+  font-size: 1em;
+}
+
+h2 {
+  font-size: var(--el-font-size-medium);
+  font-weight: 500;
+}
+
+.content p {
+  font-size: var(--el-font-size-base);
+}
+
+.result h2 {
+  font-size: var(--el-font-size-base);
+  font-weight: 500;
+  color: var(--el-text-color-regular);
+}
+
+.result span {
+  font-size: var(--el-font-size-base);
+  color: var(--el-text-color-regular);
+}
+
+.result .scrollX {
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  transform: translate(0);
+  -moz-transform: none!important;
+  scrollbar-width: thin;
+}
+
+.result .tr {
+  padding-left: var(--spacingEm-0-5)
+}
+
+.result .td{
+  text-align: center;
+  padding: 0 var(--spacingEm-0-25);
+}
