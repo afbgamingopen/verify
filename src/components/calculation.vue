@@ -1,17 +1,20 @@
 <script setup>
 import { reactive } from 'vue'
+import { parseQuery } from "vue-router"
 import sha256 from 'crypto-js/sha256';
 import hmacSHA256 from 'crypto-js/hmac-sha256';
 import Hex from 'crypto-js/enc-hex';
 
 import Dice from './dice.vue'
 
+let query = parseQuery(location.search)
+
 const data = reactive({
-  game: '',
-  clientSeed: '',
-  serverSeed: '',
-  nonce: 1,
-  cursor: 0,
+  game: query['game']?query['game']:'',
+  clientSeed: query['clientSeed']?query['clientSeed']:'',
+  serverSeed: query['serverSeed']?query['serverSeed']:'',
+  nonce: query['nonce']?query['nonce']:1,
+  cursor: query['cursor']?query['cursor']:0,
   resultPow: 0,
   result: 0,
   resultXS: '',
@@ -58,6 +61,8 @@ function hmacDigestToBytes(wordArray) {
 
     return bytes;
 }
+
+calc();
 
 </script>
 

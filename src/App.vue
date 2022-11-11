@@ -2,9 +2,14 @@
 import Overview from './components/overview.vue'
 import Implementation from './components/implementation.vue'
 import Calculation from './components/calculation.vue'
+import { parseQuery } from "vue-router"
 import { ref } from 'vue'
 
-const activeName = ref('overview')
+let query = parseQuery(location.search)
+let activeName = ref('overview')
+if(query['game'] != undefined) {
+  activeName = ref('calculation')
+}
 
 </script>
 
