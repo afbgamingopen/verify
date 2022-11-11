@@ -58,6 +58,7 @@ h2 {
 
 .content p {
   font-size: var(--el-font-size-base);
+  color: var(--el-text-color-regular);
 }
 
 .result h2 {
