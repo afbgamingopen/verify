@@ -108,4 +108,8 @@ calc();
   width: 100%;
 }
 
+.calccontent input {
+  color: white !important;;
+}
+
 </style>
