@@ -124,6 +124,21 @@ function generateFloats ({ serverSeed, clientSeed, nonce, cursor, count }) {
             </code>
         </pre>
         </p>
+
+        <h2>Dice</h2>
+        <p>In our version of dice, we cover a possible roll spread of 00.00 to 100.00, which has a range of
+            10,001 possible outcomes. The game event translation is done by multiplying the float by number
+            of possible outcomes and then dividing by 100 so that the resulting number fits the constraints
+            of our stated dice range.
+        </p>
+        <p>
+            <pre>
+                <code>
+// Game event translation
+const roll = (float * 10001) / 100;
+                </code>
+            </pre>
+        </p>
     </div>
 </div>
 
