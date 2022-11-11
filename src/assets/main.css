@@ -53,6 +53,7 @@ a,
 h2 {
   font-size: var(--el-font-size-medium);
   font-weight: 500;
+  padding: 1em 0;
 }
 
 .content p {

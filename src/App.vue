@@ -26,7 +26,7 @@ const activeName = ref('overview')
         </el-tabs>
       </el-main>
       <el-footer>
-        Get source from  
+        Get source 
         <a href="https://github.com/afbgamingopen/verify" target="_blank">Github.com</a>
       </el-footer>
     </el-container>
