@@ -14,7 +14,8 @@ const data = reactive({
   clientSeed: query['clientSeed']?query['clientSeed']:'',
   serverSeed: query['serverSeed']?query['serverSeed']:'',
   nonce: query['nonce']?query['nonce']:1,
-  cursor: query['cursor']?query['cursor']:0,
+  table: query['table']?query['table']:0,
+  cursor: 0,
   resultPow: 0,
   result: 0,
   resultXS: '',
@@ -30,7 +31,7 @@ function handleChange() {
 
 function calc() {
   if(data.game == "dice") {
-    const hmacDigest = hmacSHA256(data.clientSeed+":"+data.nonce+":0", data.serverSeed);
+    const hmacDigest = hmacSHA256(data.clientSeed+":"+data.nonce+":"+data.table+":0", data.serverSeed);
     const hmacDigestBytes = hmacDigestToBytes(hmacDigest);
     const hmacDigestHex = Hex.stringify(hmacDigest);
     data.hmacDigest = hmacDigest;
@@ -83,6 +84,13 @@ calc();
             </el-form-item>
             <el-form-item label="Nonce">
                 <el-input-number v-model="data.nonce" @change="handleChange" :min="1" label="Nonce"></el-input-number>
+            </el-form-item>
+            <el-form-item label="Table">
+              <el-select v-model="data.table" placeholder="Please Selece Table" @change="handleChange">
+                <el-option label="Beginner" value="0"></el-option>
+                <el-option label="Intermediate" value="1"></el-option>
+                <el-option label="Advanced" value="2"></el-option>
+              </el-select>
             </el-form-item>
           </el-form>
     </div>
