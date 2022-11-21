@@ -80,7 +80,7 @@ function byteGenerator({ serverSeed, clientSeed, nonce, table, cursor }) {
         <p>The implementation of nonce, ensures we remain committed to your client seed and server seed
             pair, whilst generating new results for each bet placed.</p>
         <h2>Table</h2>
-        <p>Table is the game table selected by the player, one game can have multiple tables, namely beginner, intermediate, advanced, etc.</p>
+        <p>Table is the game table selected by the player, one game can have multiple tables, namely Junior, Intermediate, Senior, etc.</p>
         <h2>Cursor (Incremental Number)</h2>
         <p>We use 4 bytes of data to generate a single game result, and because SHA256 is limited to 32
             bytes, we utilise this implementation of a cursor to give us the ability to create more game

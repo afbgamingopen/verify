@@ -87,9 +87,9 @@ calc();
             </el-form-item>
             <el-form-item label="Table">
               <el-select v-model="data.table" placeholder="Please Selece Table" @change="handleChange">
-                <el-option label="Beginner" value="0"></el-option>
+                <el-option label="Junior" value="0"></el-option>
                 <el-option label="Intermediate" value="1"></el-option>
-                <el-option label="Advanced" value="2"></el-option>
+                <el-option label="Senior" value="2"></el-option>
               </el-select>
             </el-form-item>
           </el-form>
