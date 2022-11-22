@@ -19,7 +19,7 @@
         <pre>
             <code>
 // Random number generation based on following inputs: serverSeed, clientSeed, nonce and cursor
-function byteGenerator({ serverSeed, clientSeed, nonce, table, cursor }) {
+function byteGenerator({ serverSeed, clientSeed, nonce, cursor }) {
     // Setup curser variables
     let currentRound = Math.floor(cursor / 32);
     let currentRoundCursor = cursor;
@@ -29,7 +29,7 @@ function byteGenerator({ serverSeed, clientSeed, nonce, table, cursor }) {
     while (true) {
         // HMAC function used to output provided inputs into bytes
         const hmac = createHmac('sha256', serverSeed);
-        hmac.update(`${clientSeed}:${nonce}:${table}:${currentRound}`);
+        hmac.update(`${clientSeed}:${nonce}:${currentRound}`);
         const buffer = hmac.digest();
 
         // Update curser for next iteration of loop
@@ -79,8 +79,6 @@ function byteGenerator({ serverSeed, clientSeed, nonce, table, cursor }) {
             server seed.</p>
         <p>The implementation of nonce, ensures we remain committed to your client seed and server seed
             pair, whilst generating new results for each bet placed.</p>
-        <h2>Table</h2>
-        <p>Table is the game table selected by the player, one game can have multiple tables, namely Junior, Intermediate, Senior, etc.</p>
         <h2>Cursor (Incremental Number)</h2>
         <p>We use 4 bytes of data to generate a single game result, and because SHA256 is limited to 32
             bytes, we utilise this implementation of a cursor to give us the ability to create more game
@@ -103,9 +101,9 @@ function byteGenerator({ serverSeed, clientSeed, nonce, table, cursor }) {
         <pre>      
             <code>
 // Convert the hash output from the rng byteGenerator to floats
-function generateFloats ({ serverSeed, clientSeed, nonce, table, cursor, count }) {
+function generateFloats ({ serverSeed, clientSeed, nonce, cursor, count }) {
     // Random number generator function
-    const rng = byteGenerator({ serverSeed, clientSeed, nonce, table, cursor });
+    const rng = byteGenerator({ serverSeed, clientSeed, nonce, cursor });
     // Declare bytes as empty array
     const bytes = [];
 
