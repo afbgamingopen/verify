@@ -1,8 +1,8 @@
 <script setup>
 import { defineProps } from 'vue'
 import Slider from './dice-slider.vue'
-import Slide from './dice-slide.vue'
-import Result from './dice-result.vue'
+import Show from './singleBaccarat-show.vue'
+import Result from './singleBaccarat-result.vue'
 const props = defineProps({data:{type: Object}});
 const data = props.data;
 console.log(data.game)
@@ -10,12 +10,7 @@ console.log(data.game)
 
 <template>
   <div>
-    <div class="wrap svelte-q19e8x">
-      <div class="dice-wrap svelte-q19e8x">
-        <Slider :data="data"/>
-      </div>
-      <Slide :data="data"/>
-    </div>
+    <Show :data="data"/>
     <Result :data="data"/>
   </div>
 </template>
@@ -27,9 +22,7 @@ console.log(data.game)
   display: flex;
   justify-content: center;
   width: 100%;
-  max-width: 700px;
-  border: dotted 2px var(--grey-400);
-  padding: 1em;
+  max-width: 700px
 }
 
 .dice-wrap.svelte-q19e8x {

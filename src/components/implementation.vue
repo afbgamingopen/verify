@@ -139,6 +139,31 @@ const roll = (float * 10001) / 100;
                 </code>
             </pre>
         </p>
+
+        <h2>Baccarat</h2>
+        <p>In a standard deck of cards, there are 52 unique possible outcomes. When it comes to playing
+            Baccarat on our platform, we utilise an unlimited amount of decks when
+            generating the game event, and therefore each turn of a card always has the same probability. To
+            calculate this, we multiply each randomly generated float by 52, and then translate that result
+            into a particular card, based on the following index:</p>
+        <p>
+            <pre>
+                <code>
+// Index of 0 to 51 : ♦2 to ♣A
+const CARDS = [ 
+    ♦2, ♥2, ♠2, ♣2, ♦3, ♥3, ♠3, ♣3, ♦4, ♥4,  
+    ♠4, ♣4, ♦5, ♥5, ♠5, ♣5, ♦6, ♥6, ♠6, ♣6, 
+    ♦7, ♥7, ♠7, ♣7, ♦8, ♥8, ♠8, ♣8, ♦9, ♥9, 
+    ♠9, ♣9, ♦10, ♥10, ♠10, ♣10, ♦J, ♥J, ♠J, 
+    ♣J, ♦Q, ♥Q, ♠Q, ♣Q, ♦K, ♥K, ♠K, ♣K, ♦A, 
+    ♥A, ♠A, ♣A 
+]; 
+// Game event translation
+const card = CARDS[Math.floor(float * 52)];</code>
+            </pre>
+        </p>
+        <p>When it comes to <strong>Baccarat</strong> we only ever need 6 game events
+            generated to cover the most amount of playable cards possible.</p>
     </div>
 </div>
 

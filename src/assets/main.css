@@ -72,6 +72,10 @@ h2 {
   color: var(--el-text-color-regular);
 }
 
+.result .highlight span {
+  color: white;
+}
+
 .result .scrollX {
   overflow-x: auto;
   overflow-y: hidden;

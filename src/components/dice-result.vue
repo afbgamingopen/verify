@@ -59,7 +59,7 @@ const index4 = [4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,2
                     {{(data.hmacDigestBytes[0]/Math.pow(256,1)).toFixed(12).substring(1,14)}}</span></td>
                 <td class="td">
                   <span style="font-family: monospace; white-space: nowrap;">
-                    ({{data.hmacDigestBytes[0]}} / (256 ^ 1))</span>
+                    ({{data.hmacDigestBytes[0].toString().padStart(3,'0')}} / (256 ^ 1))</span>
                 </td>
               </tr>
               <tr>
@@ -72,7 +72,7 @@ const index4 = [4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,2
                     {{(data.hmacDigestBytes[1]/Math.pow(256,2)).toFixed(12).substring(1,14)}}</span></td>
                 <td class="td"><span
                     style="font-family: monospace; white-space: nowrap;">
-                    ({{data.hmacDigestBytes[1]}} / (256 ^ 2))</span></td>
+                    ({{data.hmacDigestBytes[1].toString().padStart(3,'0')}} / (256 ^ 2))</span></td>
               </tr>
               <tr>
                 <td class="td" style="padding-right: var(--spacing-1);"><span class="highlight"
@@ -84,7 +84,7 @@ const index4 = [4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,2
                     {{(data.hmacDigestBytes[2]/Math.pow(256,3)).toFixed(12).substring(1,14)}}</span></td>
                 <td class="td"><span
                     style="font-family: monospace; white-space: nowrap;">
-                    ({{data.hmacDigestBytes[2]}} / (256 ^ 3))</span></td>
+                    ({{data.hmacDigestBytes[2].toString().padStart(3,'0')}} / (256 ^ 3))</span></td>
               </tr>
               <tr>
                 <td class="td" style="padding-right: var(--spacing-1);"><span class="highlight"
@@ -96,7 +96,7 @@ const index4 = [4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,2
                     {{(data.hmacDigestBytes[3]/Math.pow(256,4)).toFixed(12).substring(1,14)}}</span></td>
                 <td class="td"><span
                     style="font-family: monospace; white-space: nowrap;">
-                    ({{data.hmacDigestBytes[3]}} / (256 ^ 4))</span></td>
+                    ({{data.hmacDigestBytes[3].toString().padStart(3,'0')}} / (256 ^ 4))</span></td>
               </tr>
               <tr>
                 <td class="td" style="padding-right: var(--spacing-1);"><span class="highlight"

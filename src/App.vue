@@ -7,7 +7,7 @@ import { ref } from 'vue'
 
 let query = parseQuery(location.search)
 let activeName = ref('overview')
-if(query['game'] != undefined) {
+if(query['game'] != undefined && query['game'] != "") {
   activeName = ref('calculation')
 }
 
