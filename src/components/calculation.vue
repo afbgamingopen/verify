@@ -11,30 +11,30 @@ import SingleBaccarat from './singleBaccarat.vue'
 let query = parseQuery(location.search);
 
 const data = reactive({
-  game: query['game']?query['game']:'',
-  clientSeed: query['clientSeed']?query['clientSeed']:'',
-  serverSeed: query['serverSeed']?query['serverSeed']:'',
-  nonce: query['nonce']?query['nonce']:1,
-  cursor: 0,
-  resultPow: 0,
-  result: 0,
-  resultXS: '',
-  finalResult: '',
-  hmacDigest: '',
-  hmacDigestBytes: [],
-  hmacDigestHex: '',
+    game: query['game']?query['game']:'',
+    clientSeed: query['clientSeed']?query['clientSeed']:'',
+    serverSeed: query['serverSeed']?query['serverSeed']:'',
+    nonce: query['nonce']?query['nonce']:1,
+    cursor: 0,
+    resultPow: 0,
+    result: 0,
+    resultXS: '',
+    finalResult: '',
+    hmacDigest: '',
+    hmacDigestBytes: [],
+    hmacDigestHex: '',
 })
 
 function handleChange() {
-  calc();
+   calc();
 }
 
 function calc() {
-  if(data.game == "dice") {
-    calcDice();
-  }else if(data.game == "singleBaccarat") {
-    calcSingleBaccarat();
-  }
+    if(data.game == "dice") {
+        calcDice();
+    }else if(data.game == "singleBaccarat") {
+        calcSingleBaccarat();
+    }
 }
 
 function calcDice() {
@@ -45,9 +45,9 @@ function calcDice() {
     data.hmacDigestBytes = hmacDigestBytes;
     data.hmacDigestHex = hmacDigestHex;
     data.resultPow = hmacDigestBytes[0]/Math.pow(256,1) + 
-      hmacDigestBytes[1]/Math.pow(256,2) +
-      hmacDigestBytes[2]/Math.pow(256,3) +
-      hmacDigestBytes[3]/Math.pow(256,4);
+        hmacDigestBytes[1]/Math.pow(256,2) +
+        hmacDigestBytes[2]/Math.pow(256,3) +
+        hmacDigestBytes[3]/Math.pow(256,4);
     data.result = data.resultPow * 10001;
     data.resultXS = data.result.toFixed(20)
     data.resultXS = data.resultXS.substr(data.resultXS.indexOf("."), 13)
@@ -55,59 +55,109 @@ function calcDice() {
 }
 
 function calcSingleBaccarat() {
-    const hmacDigest = hmacSHA256(data.clientSeed+":"+data.nonce+":0", data.serverSeed);
-    const hmacDigestBytes = hmacDigestToBytes(hmacDigest);
-    const hmacDigestHex = Hex.stringify(hmacDigest);
-    data.hmacDigest = hmacDigest;
-    data.hmacDigestBytes = hmacDigestBytes;
-    data.hmacDigestHex = hmacDigestHex;
-    data.resultPow = [0,0,0,0,0,0];
-    data.result = [0,0,0,0,0,0];
-    data.resultXS = [0,0,0,0,0,0];
-    data.finalResult = [0,0,0,0,0,0];
-    data.finalPoker = [0,0,0,0,0,0];
-    for(let idx = 0; idx < 6; idx++) {
-      data.resultPow[idx] = hmacDigestBytes[idx*4+0]/Math.pow(256,1) + 
-        hmacDigestBytes[idx*4+1]/Math.pow(256,2) +
-        hmacDigestBytes[idx*4+2]/Math.pow(256,3) +
-        hmacDigestBytes[idx*4+3]/Math.pow(256,4);
-      data.result[idx] = data.resultPow[idx] * 52;
-      data.resultXS[idx] = data.result[idx].toFixed(20)
-      data.resultXS[idx] = data.resultXS[idx].substr(data.resultXS[idx].indexOf("."), 13)
-      data.finalResult[idx] = (Math.floor(data.result[idx]));
-      data.finalPoker[idx] = window.pokers[data.finalResult[idx]];
-    }
+  const hmacDigest = hmacSHA256(data.clientSeed + ":" + data.nonce + ":0", data.serverSeed);
+  const hmacDigestBytes = hmacDigestToBytes(hmacDigest);
+  const hmacDigestHex = Hex.stringify(hmacDigest);
+  data.hmacDigest = hmacDigest;
+  data.hmacDigestBytes = hmacDigestBytes;
+  data.hmacDigestHex = hmacDigestHex;
+  data.resultPow = [0, 0, 0, 0, 0, 0];
+  data.result = [0, 0, 0, 0, 0, 0];
+  data.resultXS = [0, 0, 0, 0, 0, 0];
+  data.finalResult = [0, 0, 0, 0, 0, 0];
+  data.finalPoker = [0, 0, 0, 0, 0, 0];
+  for (let idx = 0; idx < 6; idx++) {
+    data.resultPow[idx] = hmacDigestBytes[idx * 4 + 0] / Math.pow(256, 1) +
+      hmacDigestBytes[idx * 4 + 1] / Math.pow(256, 2) +
+      hmacDigestBytes[idx * 4 + 2] / Math.pow(256, 3) +
+      hmacDigestBytes[idx * 4 + 3] / Math.pow(256, 4);
+    data.result[idx] = data.resultPow[idx] * 52;
+    data.resultXS[idx] = data.result[idx].toFixed(20)
+    data.resultXS[idx] = data.resultXS[idx].substr(data.resultXS[idx].indexOf("."), 13)
+    data.finalResult[idx] = (Math.floor(data.result[idx]));
+    data.finalPoker[idx] = window.pokers[data.finalResult[idx]];
+  }
 
-    data.playerPoker = [data.finalPoker[0],data.finalPoker[2]];
-    data.bankerPoker = [data.finalPoker[1],data.finalPoker[3]];
-    data.playerPoint = data.finalPoker[0].baccaretPoint + data.finalPoker[2].baccaretPoint
-    data.bankerPoint = data.finalPoker[1].baccaretPoint + data.finalPoker[3].baccaretPoint
+  data.playerPoker = [data.finalPoker[0], data.finalPoker[2]];
+  data.bankerPoker = [data.finalPoker[1], data.finalPoker[3]];
+  data.playerPoint = data.finalPoker[0].baccaretPoint + data.finalPoker[2].baccaretPoint
+  data.bankerPoint = data.finalPoker[1].baccaretPoint + data.finalPoker[3].baccaretPoint
+  data.playerPoint = data.playerPoint % 10;
+  data.bankerPoint = data.bankerPoint % 10;
+
+  if (data.playerPoint < 8 && data.bankerPoint < 8) {
     let nextPoker = data.finalPoker[4];
-    data.playerPoint = data.playerPoint % 10;
-    if(data.playerPoint <= 5) {
-      data.playerPoker.push(nextPoker);
-      data.playerPoint += nextPoker.baccaretPoint;
-      nextPoker = data.finalPoker[5];
-      data.playerPoint = data.playerPoint % 10;
+    switch(data.playerPoint) {
+      case 0:
+      case 1:
+      case 2:
+      case 3:
+      case 4:
+      case 5:
+        data.playerPoker.push(nextPoker);
+        data.playerPoint += nextPoker.baccaretPoint;
+        nextPoker = data.finalPoker[5];
+        data.playerPoint = data.playerPoint % 10;
+        let playerDrawPokerPoint = nextPoker.baccaretPoint;
+        switch (data.bankerPoint) {
+          case 0:
+          case 1:
+          case 2:
+            data.bankerPoint += nextPoker.baccaretPoint
+            data.bankerPoker.push(nextPoker);
+            data.bankerPoint = data.bankerPoint % 10;
+            break;
+          case 3:
+            if (playerDrawPokerPoint != 8) {
+              data.bankerPoint += nextPoker.baccaretPoint
+              data.bankerPoker.push(nextPoker);
+              data.bankerPoint = data.bankerPoint % 10;
+            }
+            break;
+          case 4:
+            if ([0, 1, 8, 9].indexOf(playerDrawPokerPoint) == -1) {
+              data.bankerPoint += nextPoker.baccaretPoint
+              data.bankerPoker.push(nextPoker);
+              data.bankerPoint = data.bankerPoint % 10;
+            }
+            break;
+          case 5:
+            if ([0, 1, 2, 3, 8, 9].indexOf(playerDrawPokerPoint) == -1) {
+              data.bankerPoint += nextPoker.baccaretPoint
+              data.bankerPoker.push(nextPoker);
+              data.bankerPoint = data.bankerPoint % 10;
+            }
+            break;
+          case 6:
+            if ([6, 7].indexOf(playerDrawPokerPoint) >= 0) {
+              data.bankerPoint += nextPoker.baccaretPoint
+              data.bankerPoker.push(nextPoker);
+              data.bankerPoint = data.bankerPoint % 10;
+            }
+            break;
+        }
+        break;
+      case 6:
+      case 7:
+        if([0,1,2,3,4,5].indexOf(data.bankerPoint) >= 0) {
+          data.bankerPoint += nextPoker.baccaretPoint
+          data.bankerPoker.push(nextPoker);
+          data.bankerPoint = data.bankerPoint % 10;
+        }
+        break;
     }
-
-    data.bankerPoint = data.bankerPoint % 10;
-    if(data.bankerPoint <= 5 && data.bankerPoint < data.playerPoint) {
-      data.bankerPoint += nextPoker.baccaretPoint
-      data.bankerPoker.push(nextPoker);
-      data.bankerPoint = data.bankerPoint % 10;
-    }
-
-    if(data.playerPoint > data.bankerPoint) {
-      data.playerWin = "win";
-      data.bankerWin = "lose";
-    }else if(data.playerPoint == data.bankerPoint){
-      data.playerWin = "none";
-      data.bankerWin = "none";
-    }else{
-      data.playerWin = "lose";
-      data.bankerWin = "win";
-    }
+  }
+  
+  if (data.playerPoint > data.bankerPoint) {
+    data.playerWin = "win";
+    data.bankerWin = "lose";
+  } else if (data.playerPoint == data.bankerPoint) {
+    data.playerWin = "none";
+    data.bankerWin = "none";
+  } else {
+    data.playerWin = "lose";
+    data.bankerWin = "win";
+  }
 }
 
 
