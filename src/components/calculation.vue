@@ -96,9 +96,9 @@ function calcSingleBaccarat() {
       case 5:
         data.playerPoker.push(nextPoker);
         data.playerPoint += nextPoker.baccaretPoint;
-        nextPoker = data.finalPoker[5];
-        data.playerPoint = data.playerPoint % 10;
         let playerDrawPokerPoint = nextPoker.baccaretPoint;
+        data.playerPoint = data.playerPoint % 10;
+        nextPoker = data.finalPoker[5];
         switch (data.bankerPoint) {
           case 0:
           case 1:
