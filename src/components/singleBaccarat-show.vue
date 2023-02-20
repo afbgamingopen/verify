@@ -1,8 +1,5 @@
 <script setup>
 import { defineProps } from 'vue'
-import Slider from './dice-slider.vue'
-import Slide from './dice-slide.vue'
-import Result from './dice-result.vue'
 const props = defineProps({data:{type: Object}});
 const data = props.data;
 </script>

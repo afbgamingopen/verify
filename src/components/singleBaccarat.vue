@@ -1,6 +1,5 @@
 <script setup>
 import { defineProps } from 'vue'
-import Slider from './dice-slider.vue'
 import Show from './singleBaccarat-show.vue'
 import Result from './singleBaccarat-result.vue'
 const props = defineProps({data:{type: Object}});
