@@ -140,7 +140,7 @@ const roll = (float * 10001) / 100;
             </pre>
         </p>
 
-        <h2>Baccarat</h2>
+        <h2>Single Baccarat</h2>
         <p>In a standard deck of cards, there are 52 unique possible outcomes. When it comes to playing
             Baccarat on our platform, we utilise an unlimited amount of decks when
             generating the game event, and therefore each turn of a card always has the same probability. To
@@ -164,7 +164,36 @@ const card = CARDS[Math.floor(float * 52)];</code>
         </p>
         <p>When it comes to <strong>Baccarat</strong> we only ever need 6 game events
             generated to cover the most amount of playable cards possible.</p>
-    </div>
+
+            <h2>Dice</h2>
+            <p>In our version of dice, we cover a possible roll spread of 00.00 to 100.00, which has a range of
+                10,001 possible outcomes. The game event translation is done by multiplying the float by number
+                of possible outcomes and then dividing by 100 so that the resulting number fits the constraints
+                of our stated dice range.
+            </p>
+            <p>
+                <pre>
+                    <code>
+    // Game event translation
+    const roll = (float * 10001) / 100;
+                    </code>
+                </pre>
+            </p>
+    
+            <h2>Plinko</h2>
+            <p>For any game of Plinko, the generated outcome is based on the path of the falling ball. The game event determines the direction of the falling ball for each level in the falling process. Players can choose between 8 and 16 pins of play, which determines the number of game events required to generate a complete path from top to bottom. Since there are only two possible directions (left or right) the translation is done by multiplying each float by 2, which maps to the following index:</p>
+            <p>
+                <pre>
+                    <code>
+    // Index of 0 to 1 : left to right
+    const DIRECTIONS = [ left, right ];
+
+    // Game event translation
+    const direction = CARDS[Math.floor(float * 2)];</code>
+                </pre>
+            </p>
+    
+        </div>
 </div>
 
 </template>

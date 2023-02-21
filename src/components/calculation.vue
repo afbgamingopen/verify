@@ -15,7 +15,7 @@ const data = reactive({
     serverSeed: query['serverSeed']?query['serverSeed']:'',
     nonce: query['nonce']?query['nonce']:1,
     cursor: 0,
-    risk: query['risk']?query['risk']:'normal',
+    risk: query['risk']?query['risk'].toLowerCase():'normal',
     rows: query['rows']?query['rows']:16,
 
     result: 0,
