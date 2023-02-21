@@ -4,9 +4,6 @@ import HMACSHA256 from './HMACSHA256.vue'
 import BytesToNumber from './BytesToNumber.vue'
 const props = defineProps({data:{type: Object}});
 const data = props.data;
-const indexHighLight = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23]
-const indexRemain = [24,25,26,27,28,29,30,31]
-const indexResultPow = [0,1,2,3,4,5]
 </script>
 
 <template>

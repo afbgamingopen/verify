@@ -48,7 +48,7 @@ function hmacDigestToBytes(wordArray) {
 <template>
   <div class="column">
     <span class="highlight" style="font-family: monospace; white-space: nowrap;">
-      ({{calced.digestBytes[props.byteIndex+0]}}, {{calced.digestBytes[props.byteIndex+1]}}, {{calced.digestBytes[props.byteIndex+2]}}, {{calced.digestBytes[props.byteIndex+3]}}) -&gt; [0, ..., {{ props.maxRange-1 }}] = {{(calced.finalResult*100).toFixed(0)}})</span>
+      ({{calced.digestBytes[props.byteIndex+0]}}, {{calced.digestBytes[props.byteIndex+1]}}, {{calced.digestBytes[props.byteIndex+2]}}, {{calced.digestBytes[props.byteIndex+3]}}) -&gt; [0, ..., {{ props.maxRange-1 }}] = {{(calced.finalResult*100).toFixed(0)}}</span>
     <table>
       <tbody>
         <tr>
