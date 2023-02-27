@@ -3,6 +3,7 @@ import { reactive } from 'vue'
 import { parseQuery } from "vue-router"
 import hmacSHA256 from 'crypto-js/hmac-sha256';
 
+import Crash from './crash.vue'
 import Dice from './dice.vue'
 import Plinko from './plinko.vue'
 import SingleBaccarat from './singleBaccarat.vue'
@@ -13,6 +14,7 @@ const data = reactive({
     game: query['game']?query['game']:'',
     clientSeed: query['clientSeed']?query['clientSeed']:'',
     serverSeed: query['serverSeed']?query['serverSeed']:'',
+    serverSeedHash: query['serverSeedHash']?query['serverSeedHash']:'',
     nonce: query['nonce']?query['nonce']:1,
     cursor: 0,
     risk: query['risk']?query['risk'].toLowerCase():'normal',
@@ -39,6 +41,8 @@ function calc() {
       calcSingleBaccarat();
     }else if(data.game == "plinko") {
       calcPlinko();
+    }else if(data.game == "crash") {
+      calcCrash();
     }
 }
 
@@ -206,6 +210,23 @@ function calcPlinko() {
   data.finalResult = data.plinkoPayout[result]
 }
 
+function calcCrash() {
+    const hmacDigest = hmacSHA256(data.serverSeed, data.serverSeedHash);
+    const hmacDigestBytes = hmacDigestToBytes(hmacDigest);
+    data.hmacDigest = hmacDigest;
+    data.hmacDigestBytes = hmacDigestBytes;
+    const result = (hmacDigestBytes[0] >> 4) * Math.pow(16,7) +
+                   (hmacDigestBytes[0] & 0xf) * Math.pow(16,6) +
+                   (hmacDigestBytes[1] >> 4) * Math.pow(16,5) +
+                   (hmacDigestBytes[1] & 0xf) * Math.pow(16,4) +
+                   (hmacDigestBytes[2] >> 4) * Math.pow(16,3) +
+                   (hmacDigestBytes[2] & 0xf) * Math.pow(16,2) +
+                   (hmacDigestBytes[3] >> 4) * Math.pow(16,1) +
+                   (hmacDigestBytes[3] & 0xf) * Math.pow(16,0);
+    data.result = result;
+    data.finalResult = 4294967296 / (result + 1) * (1 - 0.01);
+}
+
 function hmacDigestToBytes(wordArray) {
     // Shortcuts
     var words = wordArray.words;
@@ -240,18 +261,22 @@ setTimeout(function() { calc(); }, 1000);
         <el-form ref="form" :model="data" label-width="80px" label-position="top">
             <el-form-item label="Game">
               <el-select v-model="data.game" placeholder="Please Selece Game" @change="handleChange">
+                <el-option label="Crash" value="crash"></el-option>
                 <el-option label="Dice" value="dice"></el-option>
                 <el-option label="Plinko" value="plinko"></el-option>
                 <el-option label="Single Baccarat" value="singleBaccarat"></el-option>
               </el-select>
             </el-form-item>
-            <el-form-item label="Client Seed">
+            <el-form-item label="Client Seed" v-if="data.game!='crash'">
                 <el-input v-model="data.clientSeed" @input="handleChange"></el-input>
+            </el-form-item>
+            <el-form-item label="Server Seed hash" v-if="data.game=='crash'" >
+              <el-input v-model="data.serverSeedHash" @input="handleChange"></el-input>
             </el-form-item>
             <el-form-item label="Server Seed">
                 <el-input v-model="data.serverSeed" @input="handleChange"></el-input>
             </el-form-item>
-            <el-form-item label="Nonce">
+            <el-form-item label="Nonce" v-if="data.game!='crash'">
                 <el-input-number v-model="data.nonce" @change="handleChange" :min="1" label="Nonce"></el-input-number>
             </el-form-item>
             <el-form-item label="Risk" v-if="data.game=='plinko'" >
@@ -281,6 +306,7 @@ setTimeout(function() { calc(); }, 1000);
       </code>
     </div>
   <div>
+    <Crash v-if="data.game==='crash'" :data="data" ></Crash>
     <Dice v-if="data.game==='dice'" :data="data" ></Dice>
     <Plinko v-if="data.game==='plinko'" :data="data" ></Plinko>
     <SingleBaccarat v-if="data.game==='singleBaccarat'" :data="data" ></SingleBaccarat>
