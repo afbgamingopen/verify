@@ -125,21 +125,6 @@ function generateFloats ({ serverSeed, clientSeed, nonce, cursor, count }) {
         </pre>
         </p>
 
-        <h2>Dice</h2>
-        <p>In our version of dice, we cover a possible roll spread of 00.00 to 100.00, which has a range of
-            10,001 possible outcomes. The game event translation is done by multiplying the float by number
-            of possible outcomes and then dividing by 100 so that the resulting number fits the constraints
-            of our stated dice range.
-        </p>
-        <p>
-            <pre>
-                <code>
-// Game event translation
-const roll = (float * 10001) / 100;
-                </code>
-            </pre>
-        </p>
-
         <h2>Single Baccarat</h2>
         <p>In a standard deck of cards, there are 52 unique possible outcomes. When it comes to playing
             Baccarat on our platform, we utilise an unlimited amount of decks when
@@ -192,6 +177,9 @@ const card = CARDS[Math.floor(float * 52)];</code>
     const direction = CARDS[Math.floor(float * 2)];</code>
                 </pre>
             </p>
+    
+            <h2>Crash</h2>
+            <p>The seed hash of each round will be announced on the game interface before placing bets.</p>
     
         </div>
 </div>
