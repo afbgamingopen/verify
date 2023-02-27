@@ -23,8 +23,8 @@ const data = props.data;
       <h2
         class="weight-semibold line-height-default align-left size-default text-size-default variant-subtle with-icon-space svelte-4ickvp"
         style="">Casino Seeds to Hexadecimals</h2>
-      <HMACSHA256 :secret="data.serverSeedHash" 
-        :message="data.serverSeed" 
+      <HMACSHA256 :secret="data.serverSeed" 
+        :message="data.clientSeed" 
         :highLightCount="4" ></HMACSHA256>
   </div>
   <div class="row-wrap svelte-1j9612g">
@@ -33,8 +33,8 @@ const data = props.data;
       style="">Hexadecimals to Decimal</h2>
     <div class="wrap scrollX" style="display: flex;flex-direction: row;">
         <template v-for="idx in [0]">
-            <HexadecimalstoDecimal :secret="data.serverSeedHash" 
-            :message="data.serverSeed"
+            <HexadecimalstoDecimal :secret="data.serverSeed" 
+            :message="data.clientSeed"
             :byteIndex="idx" :maxRange="2"></HexadecimalstoDecimal>
         </template>
     </div>

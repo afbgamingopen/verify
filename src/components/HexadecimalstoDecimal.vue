@@ -65,7 +65,7 @@ function hexChar(i) {
         <tr>
           <td class="td" style="padding-right: var(--spacing-1);">
             <span style="font-family: monospace; white-space: nowrap;"> </span></td>
-          <td class="td" style="text-align: left;padding:0;"><span class="highlight" 
+          <td class="td" style="text-align: right;padding:0;"><span class="highlight" 
               style="font-family: monospace; white-space: nowrap;">
               {{((calced.digestBytes[props.byteIndex+0]>>4)*Math.pow(16,7)).toFixed(0)}}</span></td>
           <td class="td">
@@ -76,7 +76,7 @@ function hexChar(i) {
         <tr>
           <td class="td" style="padding-right: var(--spacing-1);"><span class="highlight"
               style="font-family: monospace; white-space: nowrap;">+</span></td>
-          <td class="td" style="text-align: left;padding:0;"><span class="highlight"
+          <td class="td" style="text-align: right;padding:0;"><span class="highlight"
               style="font-family: monospace; white-space: nowrap;">
               {{((calced.digestBytes[props.byteIndex+0] & 0xf)*Math.pow(16,6)).toFixed(0)}}</span></td>
           <td class="td"><span
@@ -86,7 +86,7 @@ function hexChar(i) {
         <tr>
           <td class="td" style="padding-right: var(--spacing-1);">
             <span style="font-family: monospace; white-space: nowrap;" class="highlight">+</span></td>
-          <td class="td" style="text-align: left;padding:0;"><span class="highlight" 
+          <td class="td" style="text-align: right;padding:0;"><span class="highlight" 
               style="font-family: monospace; white-space: nowrap;">
               {{((calced.digestBytes[props.byteIndex+1]>>4)*Math.pow(16,5)).toFixed(0)}}</span></td>
           <td class="td">
@@ -97,7 +97,7 @@ function hexChar(i) {
         <tr>
           <td class="td" style="padding-right: var(--spacing-1);"><span class="highlight"
               style="font-family: monospace; white-space: nowrap;">+</span></td>
-          <td class="td" style="text-align: left;padding:0;"><span class="highlight"
+          <td class="td" style="text-align: right;padding:0;"><span class="highlight"
               style="font-family: monospace; white-space: nowrap;">
               {{((calced.digestBytes[props.byteIndex+1] & 0xf)*Math.pow(16,4)).toFixed(0)}}</span></td>
           <td class="td"><span
@@ -107,7 +107,7 @@ function hexChar(i) {
         <tr>
           <td class="td" style="padding-right: var(--spacing-1);">
             <span style="font-family: monospace; white-space: nowrap;" class="highlight">+</span></td>
-          <td class="td" style="text-align: left;padding:0;"><span class="highlight" 
+          <td class="td" style="text-align: right;padding:0;"><span class="highlight" 
               style="font-family: monospace; white-space: nowrap;">
               {{((calced.digestBytes[props.byteIndex+2]>>4)*Math.pow(16,3)).toFixed(0)}}</span></td>
           <td class="td">
@@ -118,7 +118,7 @@ function hexChar(i) {
         <tr>
           <td class="td" style="padding-right: var(--spacing-1);"><span class="highlight"
               style="font-family: monospace; white-space: nowrap;">+</span></td>
-          <td class="td" style="text-align: left;padding:0;"><span class="highlight"
+          <td class="td" style="text-align: right;padding:0;"><span class="highlight"
               style="font-family: monospace; white-space: nowrap;">
               {{((calced.digestBytes[props.byteIndex+2] & 0xf)*Math.pow(16,2)).toFixed(0)}}</span></td>
           <td class="td"><span
@@ -128,7 +128,7 @@ function hexChar(i) {
         <tr>
           <td class="td" style="padding-right: var(--spacing-1);">
             <span style="font-family: monospace; white-space: nowrap;" class="highlight">+</span></td>
-          <td class="td" style="text-align: left;padding:0;"><span class="highlight" 
+          <td class="td" style="text-align: right;padding:0;"><span class="highlight" 
               style="font-family: monospace; white-space: nowrap;">
               {{((calced.digestBytes[props.byteIndex+3]>>4)*Math.pow(16,1)).toFixed(0)}}</span></td>
           <td class="td">
@@ -139,7 +139,7 @@ function hexChar(i) {
         <tr>
           <td class="td" style="padding-right: var(--spacing-1);"><span class="highlight"
               style="font-family: monospace; white-space: nowrap;">+</span></td>
-          <td class="td" style="text-align: left;padding:0;"><span class="highlight"
+          <td class="td" style="text-align: right;padding:0;"><span class="highlight"
               style="font-family: monospace; white-space: nowrap;">
               {{((calced.digestBytes[props.byteIndex+3] & 0xf)*Math.pow(16,0)).toFixed(0)}}</span></td>
           <td class="td"><span
@@ -149,7 +149,7 @@ function hexChar(i) {
         <tr>
           <td class="td" style="padding-right: var(--spacing-1);"><span class="highlight"
               style="font-family: monospace; white-space: nowrap;">=</span></td>
-          <td class="td" style="text-align: left;padding:0;"><span class="highlight"
+          <td class="td" style="text-align: right;padding:0;"><span class="highlight"
               style="font-family: monospace; white-space: nowrap;">
               {{calced.resultPow.toFixed(0)}}</span></td>
         </tr>

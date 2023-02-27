@@ -211,7 +211,7 @@ function calcPlinko() {
 }
 
 function calcCrash() {
-    const hmacDigest = hmacSHA256(data.serverSeed, data.serverSeedHash);
+    const hmacDigest = hmacSHA256(data.clientSeed, data.serverSeed);
     const hmacDigestBytes = hmacDigestToBytes(hmacDigest);
     data.hmacDigest = hmacDigest;
     data.hmacDigestBytes = hmacDigestBytes;
@@ -267,7 +267,7 @@ setTimeout(function() { calc(); }, 1000);
                 <el-option label="Single Baccarat" value="singleBaccarat"></el-option>
               </el-select>
             </el-form-item>
-            <el-form-item label="Client Seed" v-if="data.game!='crash'">
+            <el-form-item label="Client Seed">
                 <el-input v-model="data.clientSeed" @input="handleChange"></el-input>
             </el-form-item>
             <el-form-item label="Server Seed hash" v-if="data.game=='crash'" >
