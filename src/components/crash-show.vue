@@ -7,7 +7,7 @@ const data = props.data;
 <template>
   <div class="wrap svelte-wtusq6">
     <div class="wrap svelte-5dszz2">
-      <div class="content svelte-5dszz2">
+      <div class="content svelte-5dszz2" v-if="data.finalResult>0">
         <span class="content">{{(data.finalResult-0.005).toFixed(2)}}×</span>
       </div>
     </div>
