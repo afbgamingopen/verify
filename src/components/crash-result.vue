@@ -49,7 +49,7 @@ const data = props.data;
           <span 
             class="highlight weight-semibold line-height-default align-left size-medium text-size-medium variant-highlighted with-icon-space svelte-4ickvp"
             style="font-family: monospace;">{{data.result}}</span>
-          + 1) * (1 - 0.02) = 
+          + 1) * (1 - 0.03) = 
           <span 
           class="highlight weight-semibold line-height-default align-left size-medium text-size-medium variant-highlighted with-icon-space svelte-4ickvp"
           style="font-family: monospace;">{{data.finalResult}}</span>

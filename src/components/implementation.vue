@@ -227,7 +227,7 @@
                     <pre>
                         <code>
     // Game event translation
-    const result = 4294967296 / ( float + 1) * (1 - 0.02) 
+    const result = 4294967296 / ( float + 1) * (1 - 0.03) 
                         </code>
                     </pre>
                 </p>
