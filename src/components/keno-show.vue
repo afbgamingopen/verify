@@ -47,7 +47,7 @@ const numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9,
                 <div class="item" style="left:83.5%; top: 30%;"
                     :class="[data.kenoFinalResult.indexOf(17)>=0 && 'active']"><img/><span>17</span></div>
                 <div class="item" style="left:0%; top: 45%;"
-                    :class="[data.kenoFinalResult.indexOf(17)>=0 && 'active']"><img/><span>18</span></div>
+                    :class="[data.kenoFinalResult.indexOf(18)>=0 && 'active']"><img/><span>18</span></div>
                 <div class="item" style="left:15%; top: 45%;"
                     :class="[data.kenoFinalResult.indexOf(19)>=0 && 'active']"><img/><span>19</span></div>
                 <div class="item" style="left:30%; top: 45%;"
