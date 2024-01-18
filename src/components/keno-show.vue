@@ -11,33 +11,139 @@ const numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9,
 <template>
     <div class="wrap svelte-wtusq6">
         <div class="wrap svelte-7x447t">
-            <div class="tiles-wrap svelte-7x447t" style="font-size: 0.8em;">
-                <template v-for="(n, index) in numbers">
-                    <button v-if="data.kenoFinalResult.indexOf(index+1) != -1" class="tile match svelte-e8x3gt" data-test="tile" :data-index="index" data-selected="false" disabled=""
-                    style="--tile-shadow-inset: -0.15em; --shadow: 0.3em; --tile-shadow-lg: 0.44999999999999996em; --duration: 300ms;">
-                        <div class="gem svelte-1f08dh7" style="--duration: 300ms;">
-                            <img src="@/assets/keno-active.svg">
-                        </div>
-                        <span class="tile-number svelte-e8x3gt">{{ index + 1 }}</span>
-                        <div class="cover match svelte-e8x3gt">
-                            <span class="tile-number svelte-e8x3gt">{{ index + 1 }}</span>
-                        </div>
-                    </button>
-                    <button v-else class="tile hidden svelte-e8x3gt" data-test="tile" :data-index="index" data-selected="false"
-                        disabled=""
-                        style="--tile-shadow-inset: -0.15em; --shadow: 0.3em; --tile-shadow-lg: 0.44999999999999996em; --duration: 300ms;">
-                        <span class="tile-number svelte-e8x3gt">{{ index + 1 }}</span>
-                        <div class="cover hidden svelte-e8x3gt">
-                            <span class="tile-number svelte-e8x3gt">{{ index + 1 }}</span>
-                        </div>
-                    </button>
-                </template>
+            <div class="kenoShow">
+                <div class="item" style="left:22.5%; top: 0%;"
+                    :class="[data.kenoFinalResult.indexOf(1)>=0 && 'active']"><img/><span>1</span></div>
+                <div class="item" style="left:37.5%; top: 0%;"
+                    :class="[data.kenoFinalResult.indexOf(2)>=0 && 'active']"><img/><span>2</span></div>
+                <div class="item" style="left:52.5%; top: 0%;"
+                    :class="[data.kenoFinalResult.indexOf(3)>=0 && 'active']"><img/><span>3</span></div>
+                <div class="item" style="left:67.5%; top: 0%;"
+                    :class="[data.kenoFinalResult.indexOf(4)>=0 && 'active']"><img/><span>4</span></div>
+                <div class="item" style="left:0%; top: 15%;"
+                    :class="[data.kenoFinalResult.indexOf(5)>=0 && 'active']"><img/><span>5</span></div>
+                <div class="item" style="left:15%; top: 15%;"
+                    :class="[data.kenoFinalResult.indexOf(6)>=0 && 'active']"><img/><span>6</span></div>
+                <div class="item" style="left:30%; top: 15%;"
+                    :class="[data.kenoFinalResult.indexOf(7)>=0 && 'active']"><img/><span>7</span></div>
+                <div class="item" style="left:45%; top: 15%;"
+                    :class="[data.kenoFinalResult.indexOf(8)>=0 && 'active']"><img/><span>8</span></div>
+                <div class="item" style="left:60%; top: 15%;"
+                    :class="[data.kenoFinalResult.indexOf(9)>=0 && 'active']"><img/><span>9</span></div>
+                <div class="item" style="left:75%; top: 15%;"
+                    :class="[data.kenoFinalResult.indexOf(10)>=0 && 'active']"><img/><span>10</span></div>
+                <div class="item" style="left:90%; top: 15%;"
+                    :class="[data.kenoFinalResult.indexOf(11)>=0 && 'active']"><img/><span>11</span></div>
+                <div class="item" style="left:7.5%; top: 30%;"
+                    :class="[data.kenoFinalResult.indexOf(12)>=0 && 'active']"><img/><span>12</span></div>
+                <div class="item" style="left:22.5%; top: 30%;"
+                    :class="[data.kenoFinalResult.indexOf(13)>=0 && 'active']"><img/><span>13</span></div>
+                <div class="item" style="left:37.5%; top: 30%;"
+                    :class="[data.kenoFinalResult.indexOf(14)>=0 && 'active']"><img/><span>14</span></div>
+                <div class="item" style="left:52.5%; top: 30%;"
+                    :class="[data.kenoFinalResult.indexOf(15)>=0 && 'active']"><img/><span>15</span></div>
+                <div class="item" style="left:67.5%; top: 30%;"
+                    :class="[data.kenoFinalResult.indexOf(16)>=0 && 'active']"><img/><span>16</span></div>
+                <div class="item" style="left:83.5%; top: 30%;"
+                    :class="[data.kenoFinalResult.indexOf(17)>=0 && 'active']"><img/><span>17</span></div>
+                <div class="item" style="left:0%; top: 45%;"
+                    :class="[data.kenoFinalResult.indexOf(17)>=0 && 'active']"><img/><span>18</span></div>
+                <div class="item" style="left:15%; top: 45%;"
+                    :class="[data.kenoFinalResult.indexOf(19)>=0 && 'active']"><img/><span>19</span></div>
+                <div class="item" style="left:30%; top: 45%;"
+                    :class="[data.kenoFinalResult.indexOf(20)>=0 && 'active']"><img/><span>20</span></div>
+                <div class="item" style="left:60%; top: 45%;"
+                    :class="[data.kenoFinalResult.indexOf(21)>=0 && 'active']"><img/><span>21</span></div>
+                <div class="item" style="left:75%; top: 45%;"
+                    :class="[data.kenoFinalResult.indexOf(22)>=0 && 'active']"><img/><span>22</span></div>
+                <div class="item" style="left:90%; top: 45%;"
+                    :class="[data.kenoFinalResult.indexOf(23)>=0 && 'active']"><img/><span>23</span></div>
+                <div class="item" style="left:7.5%; top: 60%;"
+                    :class="[data.kenoFinalResult.indexOf(24)>=0 && 'active']"><img/><span>24</span></div>
+                <div class="item" style="left:22.5%; top: 60%;"
+                    :class="[data.kenoFinalResult.indexOf(25)>=0 && 'active']"><img/><span>25</span></div>
+                <div class="item" style="left:37.5%; top: 60%;"
+                    :class="[data.kenoFinalResult.indexOf(26)>=0 && 'active']"><img/><span>26</span></div>
+                <div class="item" style="left:52.5%; top: 60%;"
+                    :class="[data.kenoFinalResult.indexOf(27)>=0 && 'active']"><img/><span>27</span></div>
+                <div class="item" style="left:67.5%; top: 60%;"
+                    :class="[data.kenoFinalResult.indexOf(28)>=0 && 'active']"><img/><span>28</span></div>
+                <div class="item" style="left:83.5%; top: 60%;"
+                    :class="[data.kenoFinalResult.indexOf(29)>=0 && 'active']"><img/><span>29</span></div>
+                <div class="item" style="left:0%; top: 75%;"
+                    :class="[data.kenoFinalResult.indexOf(30)>=0 && 'active']"><img/><span>30</span></div>
+                <div class="item" style="left:15%; top: 75%;"
+                    :class="[data.kenoFinalResult.indexOf(31)>=0 && 'active']"><img/><span>31</span></div>
+                <div class="item" style="left:30%; top: 75%;"
+                    :class="[data.kenoFinalResult.indexOf(32)>=0 && 'active']"><img/><span>32</span></div>
+                <div class="item" style="left:45%; top: 75%;"
+                    :class="[data.kenoFinalResult.indexOf(33)>=0 && 'active']"><img/><span>33</span></div>
+                <div class="item" style="left:60%; top: 75%;"
+                    :class="[data.kenoFinalResult.indexOf(34)>=0 && 'active']"><img/><span>34</span></div>
+                <div class="item" style="left:75%; top: 75%;"
+                    :class="[data.kenoFinalResult.indexOf(35)>=0 && 'active']"><img/><span>35</span></div>
+                <div class="item" style="left:90%; top: 75%;"
+                    :class="[data.kenoFinalResult.indexOf(36)>=0 && 'active']"><img/><span>36</span></div>
+                <div class="item" style="left:22.5%; top: 90%;"
+                    :class="[data.kenoFinalResult.indexOf(37)>=0 && 'active']"><img/><span>37</span></div>
+                <div class="item" style="left:37.5%; top: 90%;"
+                    :class="[data.kenoFinalResult.indexOf(38)>=0 && 'active']"><img/><span>38</span></div>
+                <div class="item" style="left:52.5%; top: 90%;"
+                    :class="[data.kenoFinalResult.indexOf(39)>=0 && 'active']"><img/><span>39</span></div>
+                <div class="item" style="left:67.5%; top: 90%;"
+                    :class="[data.kenoFinalResult.indexOf(40)>=0 && 'active']"><img/><span>40</span></div>
             </div>
         </div>
     </div>
 </template>
 
 <style scoped>
+
+.kenoShow {
+    width: 90%;
+    height: 90%;
+    padding-bottom: 80%;
+    margin: 5% 5%;
+}
+.kenoShow .item {
+    position: absolute;
+    width: calc(12.5%);
+    padding-bottom: 15.5%;
+    transform: translate(-12.5%, -12.5%);
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.kenoShow .item img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: url("@/assets/keno.png");
+    width: 100%;
+}
+
+.kenoShow .item span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    transform: translate(-50%,-50%);
+}
+
+.kenoShow .item.active {
+    width: calc(12.5%);
+    color: gold;
+    
+}
+.kenoShow .item.active img {
+    content: url("@/assets/keno-active.png");
+}
+
 .wrap.svelte-1xr9o8z {
     width: 100%;
 }
