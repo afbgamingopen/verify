@@ -9,7 +9,6 @@ const props = defineProps({
   byteIndex: Number,
   maxRange: Number
 });
-console.log("props",props);
 watch(props, () => {
   calc();
 })
@@ -28,8 +27,6 @@ function calc() {
   calced.resultXS = calced.result.toFixed(20)
   calced.resultXS = calced.resultXS.substr(calced.resultXS.indexOf("."), 13)
   calced.finalResult = (Math.floor(calced.result)/100);
-  console.log(1111,calced.result);
-  console.log(2222,calced.finalResult);
 }
 
 function hmacDigestToBytes(wordArray) {
@@ -142,6 +139,7 @@ h2 {
 .highlight {
   color: white;
   font-weight: 500;
+  overflow: hidden;
 }
 
 </style>

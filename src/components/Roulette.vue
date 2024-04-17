@@ -478,7 +478,7 @@ const data = props.data;
   width: 100%;
   max-width: 700px;
   border: dotted 2px var(--grey-400);
-  padding: 3.5em 1em;
+  padding: 3.5em 1em 1em;
 }
 .contents {
   position: relative;
@@ -493,7 +493,7 @@ const data = props.data;
 }
 .btnR1 {
   width: 15%;
-  height: 14.5%;
+  height:66px;
   writing-mode: vertical-rl;
   transform: rotate(360deg);
   text-align: center;
@@ -582,7 +582,7 @@ const data = props.data;
 }
 .btnR2 {
   width: 15%;
-  height: 14.5%;
+  height:66px;
   writing-mode: vertical-rl;
   transform: rotate(360deg);
   text-align: center;
@@ -601,7 +601,7 @@ const data = props.data;
 }
 .btnR3 {
   width: 15%;
-  height: 14.5%;
+  height: 66px;
   writing-mode: vertical-rl;
   transform: rotate(360deg);
   text-align: center;
@@ -620,7 +620,7 @@ const data = props.data;
 }
 .btnR4 {
   width: 15%;
-  height: 14.5%;
+  height: 66px;
   writing-mode: vertical-rl;
   transform: rotate(360deg);
   text-align: center;
@@ -639,7 +639,7 @@ const data = props.data;
 }
 .btnR5 {
   width: 15%;
-  height: 14.5%;
+  height: 66px;
   writing-mode: vertical-rl;
   transform: rotate(360deg);
   text-align: center;
@@ -658,7 +658,7 @@ const data = props.data;
 }
 .btnR6 {
   width: 15%;
-  height: 14.5%;
+  height: 66px;
   writing-mode: vertical-rl;
   transform: rotate(360deg);
   text-align: center;
@@ -688,7 +688,7 @@ const data = props.data;
 }
 .btnR7 {
   width: 15%;
-  height: 29.9%;
+  height:135.5px;
   color: #000;
   writing-mode: vertical-rl;
   transform: rotate(360deg);
@@ -709,7 +709,7 @@ const data = props.data;
 }
 .btnR8 {
   width: 15%;
-  height: 29.9%;
+  height: 135.5px;
   color: #000;
   writing-mode: vertical-rl;
   transform: rotate(360deg);
@@ -731,7 +731,7 @@ const data = props.data;
 }
 .btnR9 {
   width: 15%;
-  height: 29.9%;
+  height: 135.5px;
   color: #000;
   writing-mode: vertical-rl;
   transform: rotate(360deg);
@@ -898,7 +898,7 @@ const data = props.data;
 }
 .countBox {
   width: 15%;
-  height: 7%;
+  height: 31.5px;
 }
 .countBottom1:hover {
   background-color: rgba(47, 69, 83, 1);
