@@ -506,7 +506,7 @@ const data = props.data;
   vertical-align: baseline;
   box-shadow: inset 0 0 0 1.5px #2f4553;
   cursor: pointer;
-  line-height: 2.5;
+  line-height: 2.8;
   font-weight: 700;
   margin-bottom: 1.5%;
 }
@@ -597,7 +597,7 @@ const data = props.data;
   cursor: pointer;
   font-weight: 700;
   margin-bottom: 1.5%;
-  line-height: 2.5;
+  line-height: 2.8;
 }
 .btnR3 {
   width: 15%;
@@ -613,7 +613,7 @@ const data = props.data;
   font: inherit;
   vertical-align: baseline;
   cursor: pointer;
-  line-height: 2.5;
+  line-height: 2.8;
   font-weight: 700;
   background-color: #fe2247;
   margin-bottom: 1.5%;
@@ -632,7 +632,7 @@ const data = props.data;
   font: inherit;
   vertical-align: baseline;
   cursor: pointer;
-  line-height: 2.5;
+  line-height: 2.8;
   font-weight: 700;
   background-color: #2f4553;
   margin-bottom: 1.5%;
@@ -652,7 +652,7 @@ const data = props.data;
   vertical-align: baseline;
   box-shadow: inset 0 0 0 1.5px #2f4553;
   cursor: pointer;
-  line-height: 2.5;
+  line-height: 2.8;
   font-weight: 700;
   margin-bottom: 1.5%;
 }
@@ -670,7 +670,7 @@ const data = props.data;
   vertical-align: baseline;
   box-shadow: inset 0 0 0 1.5px #2f4553;
   cursor: pointer;
-  line-height: 2.5;
+  line-height: 2.8;
   font-weight: 700;
   margin-bottom: 1.5%;
 }
@@ -703,7 +703,7 @@ const data = props.data;
   position: relative;
   cursor: pointer;
   box-shadow: inset 0 0 0 1.5px #2f4553;
-  line-height: 2.5;
+  line-height: 2.8;
   font-weight: 700;
   margin-bottom: 1.5%;
 }
@@ -725,7 +725,7 @@ const data = props.data;
   cursor: pointer;
   box-shadow: inset 0 0 0 1.5px #2f4553;
 
-  line-height: 2.5;
+  line-height: 2.8;
   font-weight: 700;
   margin-bottom: 1.5%;
 }
@@ -746,7 +746,7 @@ const data = props.data;
   position: relative;
   box-shadow: inset 0 0 0 1.5px #2f4553;
   cursor: pointer;
-  line-height: 2.5;
+  line-height: 2.8;
   font-weight: 700;
 }
 .count {
