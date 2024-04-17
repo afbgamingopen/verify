@@ -1,10 +1,36 @@
-@import './base.css';
+@import "./base.css";
 
 #app {
-  max-width: 1280px;
+  /* max-width: 1280px; */
   padding: 2rem;
   font-weight: normal;
   margin: 0 auto;
+  font-size: 12px;
+}
+/* 当屏幕宽度小于600px时，重新设置基础字体大小 */
+@media screen and (max-width: 600px) {
+  html {
+    font-size: 12px;
+  }
+}
+
+/* 使用媒体查询适配其他屏幕尺寸 */
+@media screen and (min-width: 601px) and (max-width: 800px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+@media screen and (min-width: 801px) and (max-width: 1000px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+@media screen and (min-width: 1001px) {
+  html {
+    font-size: 18px;
+  }
 }
 
 @media (max-width: 1024px) {
@@ -40,13 +66,13 @@ a,
   overflow-x: auto;
   padding: 1.25rem;
   background: #213743;
-  border-radius: .25rem;
+  border-radius: 0.25rem;
   color: #fff;
   margin: 1em 0;
 }
 
 .content code {
-  font-family: monospace,monospace;
+  font-family: monospace, monospace;
   font-size: 1em;
 }
 
@@ -81,15 +107,15 @@ h2 {
   overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
   transform: translate(0);
-  -moz-transform: none!important;
+  -moz-transform: none !important;
   scrollbar-width: thin;
 }
 
 .result .tr {
-  padding-left: var(--spacingEm-0-5)
+  padding-left: var(--spacingEm-0-5);
 }
 
-.result .td{
+.result .td {
   text-align: center;
   padding: 0 var(--spacingEm-0-25);
 }
