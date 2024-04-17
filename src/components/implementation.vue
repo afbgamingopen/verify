@@ -3,7 +3,8 @@
 
 <template>
     <div class="content">
-        <el-collapse v-model="activeNames" accordion>
+        <!-- v-model="activeNames" -->
+        <el-collapse accordion>
           <el-collapse-item title="Random Number Generation" name="1">
             <div>
                 <p>For each verifiable bet, a client

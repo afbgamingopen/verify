@@ -158,6 +158,7 @@
 
 html.dark {
   --el-text-color-regular: var(--grey-200);
+  /* background-color:#1a2c38 !important; */
 }
 
 *,
