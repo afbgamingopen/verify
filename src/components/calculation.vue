@@ -418,7 +418,7 @@ setTimeout(function () {
       </el-form>
     </div>
     <div>
-      <code id="coderesult"> </code>
+      <code id="coderesult"></code>
     </div>
     <div>
       <Crash v-if="data.game === 'crash'" :data="data"></Crash>
