@@ -10,21 +10,15 @@ let activeName = ref("overview");
 if (query["game"] != undefined && query["game"] != "") {
   activeName = ref("calculation");
 }
-function checkIsMobile() {
-  const testphone = /Android|webOS|iPhone|iPod|BlackBerry/i.test(
-    navigator.userAgent
-  )
-    ? true
-    : false;
-  if (testphone) {
-    return testphone;
-  }
-  return false;
+
+function isiOS() {
+  return (
+    /iPad|iPhone|iPod/.test(navigator.userAgent) ||
+    (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1)
+  );
 }
-function checkIsPc() {
-  return !checkIsMobile();
-}
-const isPc = checkIsPc();
+const isIOS = isiOS();
+// 使用示例
 //阻止safari浏览器双击放大功能
 let lastTouchEnd = 0; //更新手指弹起的时间
 document.documentElement.addEventListener("touchstart", function (event) {
@@ -70,11 +64,10 @@ document.documentElement.addEventListener(
 document.documentElement.addEventListener("gesturestart", function (event) {
   event.preventDefault();
 });
-
 </script>
 
 <template>
-  <div class="common-layout" v-if="isPc">
+  <div class="common-layout" :class="isIOS ? 'isIos' : ''">
     <el-container>
       <el-header>Provably Fair</el-header>
       <el-main>
@@ -97,30 +90,7 @@ document.documentElement.addEventListener("gesturestart", function (event) {
         >
       </el-footer>
     </el-container>
-  </div>
-  <div class="commonYd" v-else>
-    <el-container>
-      <el-header>Provably Fair</el-header>
-      <el-main>
-        <el-tabs v-model="activeName" class="tabs">
-          <el-tab-pane label="Overview" name="overview">
-            <Overview />
-          </el-tab-pane>
-          <el-tab-pane label="Implementation" name="implementation">
-            <Implementation />
-          </el-tab-pane>
-          <el-tab-pane label="Calculation" name="calculation">
-            <Calculation />
-          </el-tab-pane>
-        </el-tabs>
-      </el-main>
-      <el-footer>
-        Get source
-        <a href="https://github.com/afbgamingopen/verify" target="_blank"
-          >Github.com</a
-        >
-      </el-footer>
-    </el-container>
+    <div class="commonYd" v-if="isIOS"></div>
   </div>
 </template>
 <style scoped>
@@ -136,9 +106,17 @@ header {
   font-weight: normal;
   margin: 0 auto;
 }
-.commonYd {
+.isIos {
   height: 100vh;
-  width: 100% !important;
-  font-weight: normal;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+.isIos::-webkit-scrollbar {
+  width: 0;
+}
+
+.commonYd {
+  height: 80px;
+  width: 100%;
 }
 </style>
