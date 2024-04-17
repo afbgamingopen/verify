@@ -70,6 +70,7 @@ document.documentElement.addEventListener(
 document.documentElement.addEventListener("gesturestart", function (event) {
   event.preventDefault();
 });
+
 </script>
 
 <template>
