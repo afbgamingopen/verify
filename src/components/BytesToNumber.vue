@@ -9,6 +9,7 @@ const props = defineProps({
   byteIndex: Number,
   maxRange: Number
 });
+console.log("props",props);
 watch(props, () => {
   calc();
 })
@@ -27,20 +28,20 @@ function calc() {
   calced.resultXS = calced.result.toFixed(20)
   calced.resultXS = calced.resultXS.substr(calced.resultXS.indexOf("."), 13)
   calced.finalResult = (Math.floor(calced.result)/100);
+  console.log(1111,calced.result);
+  console.log(2222,calced.finalResult);
 }
 
 function hmacDigestToBytes(wordArray) {
     // Shortcuts
     var words = wordArray.words;
     var sigBytes = wordArray.sigBytes;
-
     // Convert
     var bytes = [];
     for (var i = 0; i < sigBytes; i++) {
         var bite = (words[i >>> 2] >>> (24 - (i % 4) * 8)) & 0xff;
         bytes.push(bite &0xff);
     }
-
     return bytes;
 }
 </script>

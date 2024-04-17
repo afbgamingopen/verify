@@ -32,7 +32,7 @@ const data = props.data;
       class="weight-semibold line-height-default align-left size-default text-size-default variant-subtle with-icon-space svelte-4ickvp"
       style="">Hexadecimals to Decimal</h2>
     <div class="wrap scrollX" style="display: flex;flex-direction: row;">
-        <template v-for="idx in [0]">
+        <template v-for="idx in [0]" :key="idx">
             <HexadecimalstoDecimal :secret="data.serverSeed" 
             :message="data.clientSeed"
             :byteIndex="idx" :maxRange="2"></HexadecimalstoDecimal>
