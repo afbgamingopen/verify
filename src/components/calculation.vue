@@ -20,7 +20,7 @@ const data = reactive({
   nonce: query["nonce"] ? query["nonce"] : 1,
   cursor: 0,
   risk: query["risk"] ? query["risk"].toLowerCase() : "normal",
-  rows: query["rows"] ? query["rows"] : 16,
+  rows: query["rows"] ? query["rows"] : "16",
 
   result: 0,
   calcResult: "",
