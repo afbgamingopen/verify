@@ -150,20 +150,30 @@ h2 {
 .el-input-number__increase {
   background-color: rgba(47, 69, 83, 1);
 }
-.el-input-number__decrease:hover, .el-input-number__increase:hover {
+.el-input-number__decrease:hover,
+.el-input-number__increase:hover {
   color: inherit;
 }
 .el-select-dropdown {
-  background-color:#061e31 ;
-}
-.el-select-dropdown__item.hover {
-  background-color:#409eff ;
-  color: #fff;
+  background-color: #061e31;
 }
 .el-select-dropdown__list {
   margin: 0 !important;
 }
 .el-select-dropdown__item.selected {
-  background-color:#409eff ;
+  background-color: #409eff;
   color: #fff;
 }
+.el-select-dropdown__item.hover {
+  background-color: #409eff;
+  color: #fff;
+}
+.el-select-dropdown__item:hover {
+  background-color: transparent;
+  /* color: #fff; */
+}
+.el-select-dropdown__item:active {
+  background-color: #409eff;
+  color: #fff;
+}
+
