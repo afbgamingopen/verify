@@ -21,12 +21,28 @@ body {
   html {
     font-size: 12px;
   }
+  .el-tabs__item {
+    padding: 0 !important;
+  }
+  .el-tabs__nav {
+    width: 100% !important;
+    display: flex;
+    justify-content: space-between;
+  }
 }
 
 /* 使用媒体查询适配其他屏幕尺寸 */
 @media screen and (min-width: 601px) and (max-width: 800px) {
   html {
     font-size: 14px;
+  }
+  .el-tabs__item {
+    padding: 0 !important;
+  }
+  .el-tabs__nav {
+    width: 100% !important;
+    display: flex;
+    justify-content: space-between;
   }
 }
 
@@ -73,6 +89,7 @@ select:focus {
   font-size: var(--el-font-size-medium);
   padding: 0 26px;
 }
+
 .el-tabs__item:hover {
   color: #fff;
 }
@@ -176,4 +193,3 @@ h2 {
   background-color: #409eff;
   color: #fff;
 }
-
