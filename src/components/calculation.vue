@@ -339,7 +339,6 @@ function bytesToNumber(bytes, index, maxRange) {
   let result = resultPow * maxRange;
   return result;
 }
-
 setTimeout(function () {
   calc();
 }, 1000);
@@ -447,5 +446,8 @@ setTimeout(function () {
 
 .calccontent input {
   color: white !important;
+}
+.el-input-number {
+  touch-action: none !important;
 }
 </style>
