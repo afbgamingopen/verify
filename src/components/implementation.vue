@@ -263,5 +263,7 @@
 .el-collapse {
     border-top: none;
 }
-
+img {
+    width: 100%;
+}
 </style>
