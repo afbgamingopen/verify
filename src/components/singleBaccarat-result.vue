@@ -68,7 +68,7 @@ const data = props.data;
     <div class="row-wrap">
       <h2 style="">Bytes to Number</h2>
       <div class="wrap scrollX" style="display: flex;flex-direction: row;">
-        <template v-for="idx in [0,4,8,12,16,20]">
+        <template v-for="idx in [0,4,8,12,16,20]"  :key="idx">
           <BytesToNumber :secret="data.serverSeed" 
           :message="data.clientSeed+':'+data.nonce+':'+data.cursor"
           :byteIndex="idx" :maxRange="52"></BytesToNumber>

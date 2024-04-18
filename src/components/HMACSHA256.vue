@@ -51,18 +51,18 @@ function hmacDigestToBytes(wordArray) {
     <table>
       <tbody>
         <tr class="tr">
-          <td class="td" v-for="n in calced.highLight">
+          <td class="td" v-for="n in calced.highLight" :key="n">
             <span class="highlight" style="font-family: monospace;">{{calced.digestHex.substring(n*2,n*2+2)}}</span>
           </td>
-          <td class="td" v-for="n in calced.normal">
+          <td class="td" v-for="n in calced.normal"  :key="n">
             <span style="font-family: monospace;">{{calced.digestHex.substring(n*2,n*2+2)}}</span>
           </td>
         </tr>
         <tr class="tr">
-          <td class="td" v-for="n in calced.highLight">
+          <td class="td" v-for="n in calced.highLight"  :key="n">
             <span class="highlight" style="font-family: monospace;">{{calced.digestBytes[n]}}</span>
           </td>
-          <td class="td" v-for="n in calced.normal">
+          <td class="td" v-for="n in calced.normal"  :key="n">
             <span style="font-family: monospace;">{{calced.digestBytes[n]}}</span>
           </td>
         </tr>

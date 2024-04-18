@@ -60,8 +60,8 @@ const data = props.data;
             <div class="wrap scrollX" style="display: flex;flex-direction: row;">
                 <table>
                     <tbody>
-                        <tr v-for="(nums, rowIndex) in data.kenoNumberToShuffle" class="tr svelte-1lfzokq">
-                            <td v-for="(num, colIndex) in nums" class="td svelte-1lfzokq">
+                        <tr v-for="(nums, rowIndex) in data.kenoNumberToShuffle" :key="rowIndex" class="tr svelte-1lfzokq">
+                            <td v-for="(num, colIndex) in nums" :key="colIndex" class="td svelte-1lfzokq">
                                 <span class="weight-semibold line-height-default align-left size-medium text-size-medium variant-highlighted with-icon-space svelte-4ickvp"
                                     :class="[num==data.kenoCalcResult[rowIndex] && 'active']"
                                     style="font-family: monospace;">{{num}}</span> </td>

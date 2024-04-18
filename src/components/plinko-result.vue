@@ -19,12 +19,12 @@ const data = props.data;
           <table>
             <tbody>
               <tr class="tr svelte-1lfzokq">
-                <td v-for="(n, index) in data.plinkoRows" :class="[index==data.result && 'active']" class="td svelte-1lfzokq"><span
+                <td v-for="(n, index) in data.plinkoRows" :key="index" :class="[index==data.result && 'active']" class="td svelte-1lfzokq"><span
                     class="weight-semibold line-height-default align-left size-medium text-size-medium variant-highlighted with-icon-space svelte-4ickvp"
                     style="font-family: monospace;">{{n}}</span> </td>
               </tr>
               <tr class="tr svelte-1lfzokq">
-                <td v-for="(n, index) in data.plinkoPayout" :class="[index==data.result && 'active']" class="td svelte-1lfzokq"><span
+                <td v-for="(n, index) in data.plinkoPayout" :key="index" :class="[index==data.result && 'active']" class="td svelte-1lfzokq"><span
                     class="weight-semibold line-height-default align-left size-medium text-size-medium variant-highlighted with-icon-space svelte-4ickvp"
                     style="font-family: monospace;">{{n}}</span> </td>
               </tr>
@@ -52,17 +52,17 @@ const data = props.data;
       class="weight-semibold line-height-default align-left size-default text-size-default variant-subtle with-icon-space svelte-4ickvp"
       style="">Bytes to Number</h2>
     <div class="wrap scrollX" style="display: flex;flex-direction: row;">
-        <template v-for="idx in [0,4,8,12,16,20,24,28]">
+        <template v-for="idx in [0,4,8,12,16,20,24,28]" :key="idx">
             <BytesToNumber :secret="data.serverSeed" 
             :message="data.clientSeed+':'+data.nonce+':0'"
             :byteIndex="idx" :maxRange="2"></BytesToNumber>
         </template>
-        <template v-for="idx in [0,4,8,12,16,20,24,28]">
+        <template v-for="idx in [0,4,8,12,16,20,24,28]" :key="idx">
             <BytesToNumber :secret="data.serverSeed" 
             :message="data.clientSeed+':'+data.nonce+':1'"
             :byteIndex="idx" :maxRange="2"></BytesToNumber>
         </template>
-        <template v-for="idx in [0,4,8,12]">
+        <template v-for="idx in [0,4,8,12]"  :key="idx">
             <BytesToNumber :secret="data.serverSeed" 
             :message="data.clientSeed+':'+data.nonce+':2'"
             :byteIndex="idx" :maxRange="2"></BytesToNumber>
