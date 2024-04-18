@@ -1,7 +1,7 @@
 <script setup>
-import { defineProps } from 'vue'
-import HMACSHA256 from './HMACSHA256.vue'
-import HexadecimalstoDecimal from './HexadecimalstoDecimal.vue'
+import { defineProps } from "vue";
+import HMACSHA256 from "./HMACSHA256.vue";
+import HexadecimalstoDecimal from "./HexadecimalstoDecimal.vue";
 const props = defineProps({ data: { type: Object } });
 const data = props.data;
 </script>
@@ -11,55 +11,79 @@ const data = props.data;
     <div class="row-wrap svelte-1j9612g">
       <h2
         class="weight-semibold line-height-default align-left size-default text-size-default variant-subtle with-icon-space svelte-4ickvp"
-        style="">Final Result</h2>
+        style=""
+      >
+        Final Result
+      </h2>
       <div class="scrollX crash-result">
-        <div class="wrap svelte-1lfzokq"><span
+        <div class="wrap svelte-1lfzokq">
+          <span
             class="weight-semibold line-height-default align-left size-medium text-size-medium variant-highlighted with-icon-space svelte-4ickvp"
-            style="font-family: monospace;">{{data.finalResult}}</span>
+            style="font-family: monospace"
+            >{{ data.finalResult }}</span
+          >
         </div>
       </div>
     </div>
     <div class="row-wrap svelte-1j9612g">
       <h2
         class="weight-semibold line-height-default align-left size-default text-size-default variant-subtle with-icon-space svelte-4ickvp"
-        style="">Casino Seeds to Hexadecimals</h2>
-      <HMACSHA256 :secret="data.serverSeed" 
-        :message="data.clientSeed" 
-        :highLightCount="4" ></HMACSHA256>
-  </div>
-  <div class="row-wrap svelte-1j9612g">
-    <h2
-      class="weight-semibold line-height-default align-left size-default text-size-default variant-subtle with-icon-space svelte-4ickvp"
-      style="">Hexadecimals to Decimal</h2>
-    <div class="wrap scrollX" style="display: flex;flex-direction: row;">
-        <template v-for="idx in [0]" :key="idx">
-            <HexadecimalstoDecimal :secret="data.serverSeed" 
-            :message="data.clientSeed"
-            :byteIndex="idx" :maxRange="2"></HexadecimalstoDecimal>
-        </template>
+        style=""
+      >
+        Casino Seeds to Hexadecimals
+      </h2>
+      <HMACSHA256
+        :secret="data.serverSeed"
+        :message="data.clientSeed"
+        :highLightCount="4"
+      ></HMACSHA256>
     </div>
-  </div>
-  <div class="row-wrap svelte-1j9612g">
-    <h2
-      class="weight-semibold line-height-default align-left size-default text-size-default variant-subtle with-icon-space svelte-4ickvp"
-      style="">Raw to Edged</h2>
+    <div class="row-wrap svelte-1j9612g">
+      <h2
+        class="weight-semibold line-height-default align-left size-default text-size-default variant-subtle with-icon-space svelte-4ickvp"
+        style=""
+      >
+        Hexadecimals to Decimal
+      </h2>
+      <div class="wrap scrollX" style="display: flex; flex-direction: row">
+        <template v-for="idx in [0]" :key="idx">
+          <HexadecimalstoDecimal
+            :secret="data.serverSeed"
+            :message="data.clientSeed"
+            :byteIndex="idx"
+            :maxRange="2"
+          ></HexadecimalstoDecimal>
+        </template>
+      </div>
+    </div>
+    <div class="row-wrap svelte-1j9612g">
+      <h2
+        class="weight-semibold line-height-default align-left size-default text-size-default variant-subtle with-icon-space svelte-4ickvp"
+        style=""
+      >
+        Raw to Edged
+      </h2>
       <div class="scrollX">
         <div class="wrap svelte-1lfzokq">
           4294967296 / (
-          <span 
+          <span
             class="highlight weight-semibold line-height-default align-left size-medium text-size-medium variant-highlighted with-icon-space svelte-4ickvp"
-            style="font-family: monospace;">{{data.result}}</span>
-          + 1) * (1 - 0.03) = 
-          <span 
-          class="highlight weight-semibold line-height-default align-left size-medium text-size-medium variant-highlighted with-icon-space svelte-4ickvp"
-          style="font-family: monospace;">{{data.finalResult}}</span>
+            style="font-family: monospace"
+            >{{ data.result }}</span
+          >
+          + 1) * (1 - 0.03) =
+          <span
+            class="highlight weight-semibold line-height-default align-left size-medium text-size-medium variant-highlighted with-icon-space svelte-4ickvp"
+            style="font-family: monospace"
+            >{{ data.finalResult }}</span
+          >
         </div>
       </div>
+    </div>
   </div>
-</div></template>
+</template>
 
 <style scoped>
-
 .row-wrap {
   display: flex;
   flex-direction: column;
@@ -88,7 +112,6 @@ h2 {
 }
 
 .result .crash-result span {
-    color:white;
+  color: white;
 }
-
 </style>

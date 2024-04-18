@@ -55,9 +55,7 @@
 </template>
 
 <style scoped>
-
 ul.list {
-    padding: 1.5em;
+  padding: 1.5em;
 }
-
 </style>

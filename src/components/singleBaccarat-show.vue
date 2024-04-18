@@ -1,6 +1,6 @@
 <script setup>
-import { defineProps } from 'vue'
-const props = defineProps({data:{type: Object}});
+import { defineProps } from "vue";
+const props = defineProps({ data: { type: Object } });
 const data = props.data;
 </script>
 
@@ -9,42 +9,138 @@ const data = props.data;
     <div class="wrap svelte-k21gra">
       <div class="hand-wrap svelte-k21gra" data-test="banker-hand">
         <div class="desc svelte-k21gra"><span>Player</span></div>
-        <div :class="['wrap', data.playerWin, 'svelte-n07u8e']"
-          style="--card-size-ratio: 1em; --slide-transition: 300ms; width: 7.50em; height: 8.90em; --min-height: 9.9em; --min-width: 10em">
-          <div class="svelte-n07u8e dealt" data-test="card-1"
-            style="margin-top: 0em; margin-left: 0em; animation-delay: 0ms; --muck-transition:300ms; transition: transform 300ms ease 0s; transform: translate(0px, 0px);">
-            <div class="pokerBorder"><img class="poker" :src="data.playerPoker[0].image" /></div>
-          </div>
-          <div class="svelte-n07u8e dealt" data-test="card-2"
-            style="margin-top: 1em; margin-left: -2.5em; animation-delay: 100ms; --muck-transition:300ms; transition: transform 300ms ease 0s; transform: translate(0px, 0px);">
-            <div class="pokerBorder"><img class="poker" :src="data.playerPoker[1].image" /></div>
-          </div>
-          <div v-if="data.playerPoker.length>2" class="svelte-n07u8e dealt" data-test="card-3"
-            style="margin-top: 2em; margin-left: -2.5em; animation-delay: 200ms; --muck-transition:300ms; transition: transform 300ms ease 0s; transform: translate(0px, 0px);">
-            <div>
-              <div class="pokerBorder"><img class="poker" :src="data.playerPoker[2].image" /></div>
+        <div
+          :class="['wrap', data.playerWin, 'svelte-n07u8e']"
+          style="
+            --card-size-ratio: 1em;
+            --slide-transition: 300ms;
+            width: 7.5em;
+            height: 8.9em;
+            --min-height: 9.9em;
+            --min-width: 10em;
+          "
+        >
+          <div
+            class="svelte-n07u8e dealt"
+            data-test="card-1"
+            style="
+              margin-top: 0em;
+              margin-left: 0em;
+              animation-delay: 0ms;
+              --muck-transition: 300ms;
+              transition: transform 300ms ease 0s;
+              transform: translate(0px, 0px);
+            "
+          >
+            <div class="pokerBorder">
+              <img class="poker" :src="data.playerPoker[0].image" />
             </div>
           </div>
-          <div :class="['value', data.playerWin, 'svelte-n07u8e']">{{data.playerPoint}}</div>
+          <div
+            class="svelte-n07u8e dealt"
+            data-test="card-2"
+            style="
+              margin-top: 1em;
+              margin-left: -2.5em;
+              animation-delay: 100ms;
+              --muck-transition: 300ms;
+              transition: transform 300ms ease 0s;
+              transform: translate(0px, 0px);
+            "
+          >
+            <div class="pokerBorder">
+              <img class="poker" :src="data.playerPoker[1].image" />
+            </div>
+          </div>
+          <div
+            v-if="data.playerPoker.length > 2"
+            class="svelte-n07u8e dealt"
+            data-test="card-3"
+            style="
+              margin-top: 2em;
+              margin-left: -2.5em;
+              animation-delay: 200ms;
+              --muck-transition: 300ms;
+              transition: transform 300ms ease 0s;
+              transform: translate(0px, 0px);
+            "
+          >
+            <div>
+              <div class="pokerBorder">
+                <img class="poker" :src="data.playerPoker[2].image" />
+              </div>
+            </div>
+          </div>
+          <div :class="['value', data.playerWin, 'svelte-n07u8e']">
+            {{ data.playerPoint }}
+          </div>
         </div>
       </div>
       <div class="hand-wrap svelte-k21gra">
         <div class="desc svelte-k21gra"><span>Banker</span></div>
-        <div :class="['wrap', data.bankerWin, 'svelte-n07u8e']"
-          style="--card-size-ratio: 1em; --slide-transition: 300ms; width: 7.50em; height: 8.90em; --min-height: 9.9em; --min-width: 10em">
-          <div class="svelte-n07u8e dealt" data-test="card-1"
-            style="margin-top: 0em; margin-left: 0em; animation-delay: 0ms; --muck-transition:300ms; transition: transform 300ms ease 0s; transform: translate(0px, 0px);">
-            <div class="pokerBorder"><img class="poker" :src="data.bankerPoker[0].image" /></div>
+        <div
+          :class="['wrap', data.bankerWin, 'svelte-n07u8e']"
+          style="
+            --card-size-ratio: 1em;
+            --slide-transition: 300ms;
+            width: 7.5em;
+            height: 8.9em;
+            --min-height: 9.9em;
+            --min-width: 10em;
+          "
+        >
+          <div
+            class="svelte-n07u8e dealt"
+            data-test="card-1"
+            style="
+              margin-top: 0em;
+              margin-left: 0em;
+              animation-delay: 0ms;
+              --muck-transition: 300ms;
+              transition: transform 300ms ease 0s;
+              transform: translate(0px, 0px);
+            "
+          >
+            <div class="pokerBorder">
+              <img class="poker" :src="data.bankerPoker[0].image" />
+            </div>
           </div>
-          <div class="svelte-n07u8e dealt" data-test="card-2"
-            style="margin-top: 1em; margin-left: -2.5em; animation-delay: 100ms; --muck-transition:300ms; transition: transform 300ms ease 0s; transform: translate(0px, 0px);">
-            <div class="pokerBorder"><img class="poker" :src="data.bankerPoker[1].image" /></div>
+          <div
+            class="svelte-n07u8e dealt"
+            data-test="card-2"
+            style="
+              margin-top: 1em;
+              margin-left: -2.5em;
+              animation-delay: 100ms;
+              --muck-transition: 300ms;
+              transition: transform 300ms ease 0s;
+              transform: translate(0px, 0px);
+            "
+          >
+            <div class="pokerBorder">
+              <img class="poker" :src="data.bankerPoker[1].image" />
+            </div>
           </div>
-          <div v-if="data.bankerPoker.length>2" class="svelte-n07u8e dealt" data-test="card-3"
-            style="margin-top: 2em; margin-left: -2.5em; animation-delay: 100ms; --muck-transition:300ms; transition: transform 300ms ease 0s; transform: translate(0px, 0px);">
-            <div class="pokerBorder"><img class="poker" :src="data.bankerPoker[2].image" /></div>
+          <div
+            v-if="data.bankerPoker.length > 2"
+            class="svelte-n07u8e dealt"
+            data-test="card-3"
+            style="
+              margin-top: 2em;
+              margin-left: -2.5em;
+              animation-delay: 100ms;
+              --muck-transition: 300ms;
+              transition: transform 300ms ease 0s;
+              transform: translate(0px, 0px);
+            "
+          >
+            <div class="pokerBorder">
+              <img class="poker" :src="data.bankerPoker[2].image" />
+            </div>
           </div>
-          <div :class="['value', data.bankerWin, 'svelte-n07u8e']">{{data.bankerPoint}}</div>
+          <div :class="['value', data.bankerWin, 'svelte-n07u8e']">
+            {{ data.bankerPoint }}
+          </div>
         </div>
       </div>
     </div>
@@ -56,8 +152,8 @@ const data = props.data;
   width: 100%;
 }
 
-.wrap.svelte-1xr9o8z>label {
-  width: 100%
+.wrap.svelte-1xr9o8z > label {
+  width: 100%;
 }
 
 .wrap.svelte-wtusq6 {
@@ -70,16 +166,16 @@ const data = props.data;
   max-width: 700px;
   padding: var(--spacingEm-1);
   border: dotted 2px var(--grey-400);
-  border-radius: var(--border-radius-0-5)
+  border-radius: var(--border-radius-0-5);
 }
 
-.wrap.svelte-wtusq6>*+* {
-  margin-top: var(--spacingEm-1)
+.wrap.svelte-wtusq6 > * + * {
+  margin-top: var(--spacingEm-1);
 }
 
 .tile-wrap.svelte-k21gra {
   width: 100%;
-  padding-top: var(--spacing-1)
+  padding-top: var(--spacing-1);
 }
 
 .wrap.svelte-k21gra {
@@ -88,9 +184,9 @@ const data = props.data;
   grid-gap: var(--spacingEm-1);
   display: grid;
   overflow: hidden;
-  grid-template-rows: repeat(2,-webkit-max-content);
-  grid-template-rows: repeat(2,max-content);
-  padding-bottom: var(--spacingEm-1)
+  grid-template-rows: repeat(2, -webkit-max-content);
+  grid-template-rows: repeat(2, max-content);
+  padding-bottom: var(--spacingEm-1);
 }
 
 .hand-wrap.svelte-k21gra {
@@ -99,7 +195,7 @@ const data = props.data;
   display: grid;
   grid-gap: var(--spacingEm-1);
   align-content: space-between;
-  justify-content: center
+  justify-content: center;
 }
 
 .desc.svelte-k21gra {
@@ -107,7 +203,7 @@ const data = props.data;
   font-size: var(--label-font-size);
   font-weight: var(--label-font-weight);
   letter-spacing: var(--label-letter-spacing);
-  text-align: center
+  text-align: center;
 }
 
 .wrap.svelte-n07u8e {
@@ -118,29 +214,29 @@ const data = props.data;
   font-size: var(--card-size-ratio);
   min-width: var(--min-width);
   min-height: var(--min-height);
-  transition-duration: var(--slide-transition)
+  transition-duration: var(--slide-transition);
 }
 
 @-webkit-keyframes svelte-n07u8e-muckCard {
   to {
-      opacity: 0;
-      transform: translate(-10%,10%)
+    opacity: 0;
+    transform: translate(-10%, 10%);
   }
 }
 
 @keyframes svelte-n07u8e-muckCard {
   to {
-      opacity: 0;
-      transform: translate(-10%,10%)
+    opacity: 0;
+    transform: translate(-10%, 10%);
   }
 }
 
 .content.dealt.svelte-n07u8e {
-  opacity: 1
+  opacity: 1;
 }
 
 .content.svelte-n07u8e:not(.dealt) {
-  opacity: 0
+  opacity: 0;
 }
 
 .content.mucked.svelte-n07u8e {
@@ -149,7 +245,7 @@ const data = props.data;
   -webkit-animation-duration: var(--muck-transition);
   animation-duration: var(--muck-transition);
   -webkit-animation-fill-mode: forwards;
-  animation-fill-mode: forwards
+  animation-fill-mode: forwards;
 }
 
 .value.svelte-n07u8e {
@@ -163,94 +259,93 @@ const data = props.data;
   color: var(--white);
   width: 7ch;
   text-align: center;
-  transform: translate(-100%,-100%);
-  transition-duration: .3s;
-  transition-property: background,color,transform,opacity;
+  transform: translate(-100%, -100%);
+  transition-duration: 0.3s;
+  transition-property: background, color, transform, opacity;
   transition-timing-function: ease-out;
-  box-shadow: var(--shadows-sm)
+  box-shadow: var(--shadows-sm);
 }
 
 .value.hide.svelte-n07u8e {
-  opacity: 0
+  opacity: 0;
 }
 
 .value.active.svelte-n07u8e {
   background: var(--blue-400);
-  color: var(--blue-800)
+  color: var(--blue-800);
 }
 
 .value.win.svelte-n07u8e {
   background: var(--green-400);
-  color: var(--green-800)
+  color: var(--green-800);
 }
 
 .value.draw.svelte-n07u8e {
   background: var(--yellow-500);
-  color: var(--yellow-800)
+  color: var(--yellow-800);
 }
 
 .value.lose.svelte-n07u8e {
   background: var(--red-400);
-  color: var(--red-800)
+  color: var(--red-800);
 }
 
 .value.none.svelte-n07u8e {
-  background: var(--grey-400)
+  background: var(--grey-400);
 }
-
 
 .back.svelte-1wtyksp {
   position: absolute;
   width: 100%;
   height: 100%;
-  border-radius: .25em;
+  border-radius: 0.25em;
   background: #fff;
   background-color: #fff;
   background-position: center;
   background-repeat: no-repeat;
   background-size: 100%;
   -webkit-backface-visibility: hidden;
-  backface-visibility: hidden
+  backface-visibility: hidden;
 }
 
 .face.svelte-1wtyksp {
   position: absolute;
   width: 100%;
   height: 100%;
-  border-radius: .25em;
+  border-radius: 0.25em;
   background: #fff;
-  transform: scaleX(-1)
+  transform: scaleX(-1);
 }
 
 .face.win.svelte-1wtyksp {
-  box-shadow: 0 0 0 .3em var(--green-500)
+  box-shadow: 0 0 0 0.3em var(--green-500);
 }
 
 .face.lose.svelte-1wtyksp {
-  box-shadow: 0 0 0 .3em var(--red-400)
+  box-shadow: 0 0 0 0.3em var(--red-400);
 }
 
 .face.draw.svelte-1wtyksp {
-  box-shadow: 0 0 0 .3em var(--yellow-500)
+  box-shadow: 0 0 0 0.3em var(--yellow-500);
 }
 
 .face.active.svelte-1wtyksp {
-  box-shadow: 0 0 0 .3em var(--blue-500)
+  box-shadow: 0 0 0 0.3em var(--blue-500);
 }
 
 .horizontal.svelte-1wtyksp {
   transition: var(--transition-time);
   transition-timing-function: ease-out;
-  transition-property: transform
+  transition-property: transform;
 }
 
 .horizontal.rotated.svelte-1wtyksp {
-  transform: rotate(90deg)
+  transform: rotate(90deg);
 }
 
 .content.svelte-1wtyksp {
   position: relative;
-  font-family: brandon-grotesque,sans-serif;
+  font-family: brandon-grotesque, sans-serif;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -259,17 +354,17 @@ const data = props.data;
   transition: var(--transition-time);
   transform-style: preserve-3d;
   transition-timing-function: ease-out;
-  transition-property: transform,box-shadow;
-  box-shadow: 0 0 .25em #0710174d;
-  border-radius: .25em
+  transition-property: transform, box-shadow;
+  box-shadow: 0 0 0.25em #0710174d;
+  border-radius: 0.25em;
 }
 
 .content.svelte-1wtyksp:not(.face-down) {
-  transform: rotateY(180deg)
+  transform: rotateY(180deg);
 }
 
 .wrap.svelte-1wtyksp:disabled {
-  pointer-events: none
+  pointer-events: none;
 }
 
 .face-content.svelte-soy9i6 {
@@ -280,7 +375,7 @@ const data = props.data;
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
-  margin-left: 10%
+  margin-left: 10%;
 }
 
 .wrap.svelte-n07u8e {
@@ -291,29 +386,29 @@ const data = props.data;
   font-size: var(--card-size-ratio);
   min-width: var(--min-width);
   min-height: var(--min-height);
-  transition-duration: var(--slide-transition)
+  transition-duration: var(--slide-transition);
 }
 
 @-webkit-keyframes svelte-n07u8e-muckCard {
   to {
-      opacity: 0;
-      transform: translate(-10%,10%)
+    opacity: 0;
+    transform: translate(-10%, 10%);
   }
 }
 
 @keyframes svelte-n07u8e-muckCard {
   to {
-      opacity: 0;
-      transform: translate(-10%,10%)
+    opacity: 0;
+    transform: translate(-10%, 10%);
   }
 }
 
 .content.dealt.svelte-n07u8e {
-  opacity: 1
+  opacity: 1;
 }
 
 .content.svelte-n07u8e:not(.dealt) {
-  opacity: 0
+  opacity: 0;
 }
 
 .content.mucked.svelte-n07u8e {
@@ -322,7 +417,7 @@ const data = props.data;
   -webkit-animation-duration: var(--muck-transition);
   animation-duration: var(--muck-transition);
   -webkit-animation-fill-mode: forwards;
-  animation-fill-mode: forwards
+  animation-fill-mode: forwards;
 }
 
 .value.svelte-n07u8e {
@@ -336,39 +431,39 @@ const data = props.data;
   color: var(--white);
   width: 7ch;
   text-align: center;
-  transform: translate(-100%,-100%);
-  transition-duration: .3s;
-  transition-property: background,color,transform,opacity;
+  transform: translate(-100%, -100%);
+  transition-duration: 0.3s;
+  transition-property: background, color, transform, opacity;
   transition-timing-function: ease-out;
-  box-shadow: var(--shadows-sm)
+  box-shadow: var(--shadows-sm);
 }
 
 .value.hide.svelte-n07u8e {
-  opacity: 0
+  opacity: 0;
 }
 
 .value.active.svelte-n07u8e {
   background: var(--blue-400);
-  color: var(--blue-800)
+  color: var(--blue-800);
 }
 
 .value.win.svelte-n07u8e {
   background: var(--green-400);
-  color: var(--green-800)
+  color: var(--green-800);
 }
 
 .value.draw.svelte-n07u8e {
   background: var(--yellow-500);
-  color: var(--yellow-800)
+  color: var(--yellow-800);
 }
 
 .value.lose.svelte-n07u8e {
   background: var(--red-400);
-  color: var(--red-800)
+  color: var(--red-800);
 }
 
 .value.none.svelte-n07u8e {
-  background: var(--grey-400)
+  background: var(--grey-400);
 }
 
 .svg-icon.svelte-10mcogx {
@@ -379,97 +474,107 @@ const data = props.data;
   flex-shrink: 0;
   display: inline-block;
   width: 1em;
-  height: 1em
+  height: 1em;
 }
 
 img.svelte-10mcogx {
   display: inline-block;
   width: 1em;
-  height: 1em
+  height: 1em;
 }
 
 @-webkit-keyframes svelte-1icrd1j-roll {
-  0%,5% {
-      transform: rotate(0) translate(0)
+  0%,
+  5% {
+    transform: rotate(0) translate(0);
   }
 
   15% {
-      transform: rotate(45deg) translate(-10%,-10%)
+    transform: rotate(45deg) translate(-10%, -10%);
   }
 
-  20%,30% {
-      transform: rotate(90deg) translate(0)
+  20%,
+  30% {
+    transform: rotate(90deg) translate(0);
   }
 
   37.5% {
-      transform: rotate(135deg) translate(-10%,10%)
+    transform: rotate(135deg) translate(-10%, 10%);
   }
 
-  45%,55% {
-      transform: rotate(180deg) translate(0)
+  45%,
+  55% {
+    transform: rotate(180deg) translate(0);
   }
 
   62.5% {
-      transform: rotate(225deg) translate(10%,10%)
+    transform: rotate(225deg) translate(10%, 10%);
   }
 
-  70%,80% {
-      transform: rotate(270deg) translate(0)
+  70%,
+  80% {
+    transform: rotate(270deg) translate(0);
   }
 
   87.5% {
-      transform: rotate(315deg) translate(10%,-10%)
+    transform: rotate(315deg) translate(10%, -10%);
   }
 
-  95%,to {
-      transform: rotate(360deg) translate(0)
+  95%,
+  to {
+    transform: rotate(360deg) translate(0);
   }
 }
 
 @keyframes svelte-1icrd1j-roll {
-  0%,5% {
-      transform: rotate(0) translate(0)
+  0%,
+  5% {
+    transform: rotate(0) translate(0);
   }
 
   15% {
-      transform: rotate(45deg) translate(-10%,-10%)
+    transform: rotate(45deg) translate(-10%, -10%);
   }
 
-  20%,30% {
-      transform: rotate(90deg) translate(0)
+  20%,
+  30% {
+    transform: rotate(90deg) translate(0);
   }
 
   37.5% {
-      transform: rotate(135deg) translate(-10%,10%)
+    transform: rotate(135deg) translate(-10%, 10%);
   }
 
-  45%,55% {
-      transform: rotate(180deg) translate(0)
+  45%,
+  55% {
+    transform: rotate(180deg) translate(0);
   }
 
   62.5% {
-      transform: rotate(225deg) translate(10%,10%)
+    transform: rotate(225deg) translate(10%, 10%);
   }
 
-  70%,80% {
-      transform: rotate(270deg) translate(0)
+  70%,
+  80% {
+    transform: rotate(270deg) translate(0);
   }
 
   87.5% {
-      transform: rotate(315deg) translate(10%,-10%)
+    transform: rotate(315deg) translate(10%, -10%);
   }
 
-  95%,to {
-      transform: rotate(360deg) translate(0)
+  95%,
+  to {
+    transform: rotate(360deg) translate(0);
   }
 }
 
 .roll.svelte-1icrd1j {
   display: inline-flex;
-  position: relative
+  position: relative;
 }
 
-.roll.svelte-1icrd1j>.svg-icon {
+.roll.svelte-1icrd1j > .svg-icon {
   transform-origin: center;
   -webkit-animation-name: svelte-1icrd1j-roll;
   animation-name: svelte-1icrd1j-roll;
@@ -478,26 +583,26 @@ img.svelte-10mcogx {
   -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
   -webkit-animation-timing-function: linear;
-  animation-timing-function: linear
+  animation-timing-function: linear;
 }
 
 @-webkit-keyframes svelte-1icrd1j-flipY {
   50% {
-      transform: rotateY(180deg) scale(1.2)
+    transform: rotateY(180deg) scale(1.2);
   }
 
   to {
-      transform: rotateY(360deg)
+    transform: rotateY(360deg);
   }
 }
 
 @keyframes svelte-1icrd1j-flipY {
   50% {
-      transform: rotateY(180deg) scale(1.2)
+    transform: rotateY(180deg) scale(1.2);
   }
 
   to {
-      transform: rotateY(360deg)
+    transform: rotateY(360deg);
   }
 }
 
@@ -507,26 +612,26 @@ img.svelte-10mcogx {
   -webkit-animation-duration: 1.6s;
   animation-duration: 1.6s;
   -webkit-animation-iteration-count: infinite;
-  animation-iteration-count: infinite
+  animation-iteration-count: infinite;
 }
 
 @-webkit-keyframes svelte-1icrd1j-flipX {
   50% {
-      transform: rotateX(180deg)
+    transform: rotateX(180deg);
   }
 
   to {
-      transform: rotateX(360deg)
+    transform: rotateX(360deg);
   }
 }
 
 @keyframes svelte-1icrd1j-flipX {
   50% {
-      transform: rotateX(180deg)
+    transform: rotateX(180deg);
   }
 
   to {
-      transform: rotateX(360deg)
+    transform: rotateX(360deg);
   }
 }
 
@@ -536,18 +641,18 @@ img.svelte-10mcogx {
   -webkit-animation-duration: 1.6s;
   animation-duration: 1.6s;
   -webkit-animation-iteration-count: infinite;
-  animation-iteration-count: infinite
+  animation-iteration-count: infinite;
 }
 
 @-webkit-keyframes svelte-1icrd1j-spin {
   to {
-      transform: rotate(360deg)
+    transform: rotate(360deg);
   }
 }
 
 @keyframes svelte-1icrd1j-spin {
   to {
-      transform: rotate(360deg)
+    transform: rotate(360deg);
   }
 }
 
@@ -557,34 +662,34 @@ img.svelte-10mcogx {
   -webkit-animation-duration: 1.6s;
   animation-duration: 1.6s;
   -webkit-animation-iteration-count: infinite;
-  animation-iteration-count: infinite
+  animation-iteration-count: infinite;
 }
 
 @-webkit-keyframes svelte-1icrd1j-wobble {
   25% {
-      transform: scale(1.3)
+    transform: scale(1.3);
   }
 
   50% {
-      transform: scale(1.3) rotate(-10deg)
+    transform: scale(1.3) rotate(-10deg);
   }
 
   75% {
-      transform: scale(1.3) rotate(10deg)
+    transform: scale(1.3) rotate(10deg);
   }
 }
 
 @keyframes svelte-1icrd1j-wobble {
   25% {
-      transform: scale(1.3)
+    transform: scale(1.3);
   }
 
   50% {
-      transform: scale(1.3) rotate(-10deg)
+    transform: scale(1.3) rotate(-10deg);
   }
 
   75% {
-      transform: scale(1.3) rotate(10deg)
+    transform: scale(1.3) rotate(10deg);
   }
 }
 
@@ -595,51 +700,51 @@ img.svelte-10mcogx {
   animation-duration: 1s;
   -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
-  -webkit-animation-timing-function: cubic-bezier(.87,-.41,.19,1.44);
-  animation-timing-function: cubic-bezier(.87,-.41,.19,1.44)
+  -webkit-animation-timing-function: cubic-bezier(0.87, -0.41, 0.19, 1.44);
+  animation-timing-function: cubic-bezier(0.87, -0.41, 0.19, 1.44);
 }
 
 @-webkit-keyframes svelte-1icrd1j-bounce {
   10% {
-      transform: translateY(-90%)
+    transform: translateY(-90%);
   }
 
   30% {
-      transform: translateY(0)
+    transform: translateY(0);
   }
 
   50% {
-      transform: translateY(-60%)
+    transform: translateY(-60%);
   }
 
   70% {
-      transform: translateY(0)
+    transform: translateY(0);
   }
 
   90% {
-      transform: translateY(-30%)
+    transform: translateY(-30%);
   }
 }
 
 @keyframes svelte-1icrd1j-bounce {
   10% {
-      transform: translateY(-90%)
+    transform: translateY(-90%);
   }
 
   30% {
-      transform: translateY(0)
+    transform: translateY(0);
   }
 
   50% {
-      transform: translateY(-60%)
+    transform: translateY(-60%);
   }
 
   70% {
-      transform: translateY(0)
+    transform: translateY(0);
   }
 
   90% {
-      transform: translateY(-30%)
+    transform: translateY(-30%);
   }
 }
 
@@ -649,34 +754,36 @@ img.svelte-10mcogx {
   -webkit-animation-duration: 1.1s;
   animation-duration: 1.1s;
   -webkit-animation-iteration-count: infinite;
-  animation-iteration-count: infinite
+  animation-iteration-count: infinite;
 }
 
 @-webkit-keyframes svelte-1icrd1j-tick {
-  0%,to {
-      transform: rotate(30deg)
+  0%,
+  to {
+    transform: rotate(30deg);
   }
 
   50% {
-      transform: rotate(-80deg)
+    transform: rotate(-80deg);
   }
 
   75% {
-      transform: rotate(50deg)
+    transform: rotate(50deg);
   }
 }
 
 @keyframes svelte-1icrd1j-tick {
-  0%,to {
-      transform: rotate(30deg)
+  0%,
+  to {
+    transform: rotate(30deg);
   }
 
   50% {
-      transform: rotate(-80deg)
+    transform: rotate(-80deg);
   }
 
   75% {
-      transform: rotate(50deg)
+    transform: rotate(50deg);
   }
 }
 
@@ -689,29 +796,29 @@ img.svelte-10mcogx {
   animation-iteration-count: infinite;
   transform-origin: 50% 25%;
   -webkit-animation-timing-function: ease-in-out;
-  animation-timing-function: ease-in-out
+  animation-timing-function: ease-in-out;
 }
 
 .content-or-loader.svelte-1uofbko {
   display: inline-flex;
   position: relative;
-  align-items: center
+  align-items: center;
 }
 
-.content-or-loader.truncate.svelte-1uofbko>span:not(.svg-icon) {
+.content-or-loader.truncate.svelte-1uofbko > span:not(.svg-icon) {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   display: inherit;
-  display: inline-block
+  display: inline-block;
 }
 
 .content-or-loader.loading.svelte-1uofbko {
-  visibility: hidden
+  visibility: hidden;
 }
 
-.content-or-loader.svelte-1uofbko>*+* {
-  margin-left: var(--spacing-0-5)
+.content-or-loader.svelte-1uofbko > * + * {
+  margin-left: var(--spacing-0-5);
 }
 
 .loader.svelte-1uofbko {
@@ -721,15 +828,15 @@ img.svelte-10mcogx {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%)!important
+  transform: translate(-50%, -50%) !important;
 }
 
-.loader.svelte-1uofbko>* {
+.loader.svelte-1uofbko > * {
   width: 100%;
   height: 100%;
   display: flex;
   align-items: center;
-  justify-content: center
+  justify-content: center;
 }
 
 .wrap.svelte-n07u8e {
@@ -740,29 +847,29 @@ img.svelte-10mcogx {
   font-size: var(--card-size-ratio);
   min-width: var(--min-width);
   min-height: var(--min-height);
-  transition-duration: var(--slide-transition)
+  transition-duration: var(--slide-transition);
 }
 
 @-webkit-keyframes svelte-n07u8e-muckCard {
   to {
-      opacity: 0;
-      transform: translate(-10%,10%)
+    opacity: 0;
+    transform: translate(-10%, 10%);
   }
 }
 
 @keyframes svelte-n07u8e-muckCard {
   to {
-      opacity: 0;
-      transform: translate(-10%,10%)
+    opacity: 0;
+    transform: translate(-10%, 10%);
   }
 }
 
 .content.dealt.svelte-n07u8e {
-  opacity: 1
+  opacity: 1;
 }
 
 .content.svelte-n07u8e:not(.dealt) {
-  opacity: 0
+  opacity: 0;
 }
 
 .content.mucked.svelte-n07u8e {
@@ -771,7 +878,7 @@ img.svelte-10mcogx {
   -webkit-animation-duration: var(--muck-transition);
   animation-duration: var(--muck-transition);
   -webkit-animation-fill-mode: forwards;
-  animation-fill-mode: forwards
+  animation-fill-mode: forwards;
 }
 
 .value.svelte-n07u8e {
@@ -785,39 +892,39 @@ img.svelte-10mcogx {
   color: var(--white);
   width: 7ch;
   text-align: center;
-  transform: translate(-100%,-100%);
-  transition-duration: .3s;
-  transition-property: background,color,transform,opacity;
+  transform: translate(-100%, -100%);
+  transition-duration: 0.3s;
+  transition-property: background, color, transform, opacity;
   transition-timing-function: ease-out;
-  box-shadow: var(--shadows-sm)
+  box-shadow: var(--shadows-sm);
 }
 
 .value.hide.svelte-n07u8e {
-  opacity: 0
+  opacity: 0;
 }
 
 .value.active.svelte-n07u8e {
   background: var(--blue-400);
-  color: var(--blue-800)
+  color: var(--blue-800);
 }
 
 .value.win.svelte-n07u8e {
   background: var(--green-400);
-  color: var(--green-800)
+  color: var(--green-800);
 }
 
 .value.draw.svelte-n07u8e {
   background: var(--yellow-500);
-  color: var(--yellow-800)
+  color: var(--yellow-800);
 }
 
 .value.lose.svelte-n07u8e {
   background: var(--red-400);
-  color: var(--red-800)
+  color: var(--red-800);
 }
 
 .value.none.svelte-n07u8e {
-  background: var(--grey-400)
+  background: var(--grey-400);
 }
 
 .pokerBorder {

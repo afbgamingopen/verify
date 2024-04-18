@@ -261,9 +261,9 @@
 
 <style scoped>
 .el-collapse {
-    border-top: none;
+  border-top: none;
 }
 img {
-    width: 100%;
+  width: 100%;
 }
 </style>

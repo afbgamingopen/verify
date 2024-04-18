@@ -118,10 +118,9 @@ header {
 .commonYd {
   height: 80px;
   width: 100%;
-  background-color:#0f212e ;
+  background-color: #0f212e;
 }
 .el-container {
-  background-color:#0f212e ;
+  background-color: #0f212e;
 }
-
 </style>

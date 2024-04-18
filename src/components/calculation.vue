@@ -312,8 +312,7 @@ function calcRoulette() {
   const hmacDigestBytes = hmacDigestToBytes(hmacDigest);
   data.hmacDigest = hmacDigest;
   data.hmacDigestBytes = hmacDigestBytes;
-  data.finalResult =
-    Math.floor(bytesToNumber(data.hmacDigestBytes, 0, 37));
+  data.finalResult = Math.floor(bytesToNumber(data.hmacDigestBytes, 0, 37));
 }
 
 function hmacDigestToBytes(wordArray) {
