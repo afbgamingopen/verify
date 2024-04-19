@@ -20,7 +20,9 @@ const data = props.data;
         <div class="btnR8">13 to 24</div>
         <div class="btnR9">25 to 36</div>
         <div class="countBox"></div>
-        <div class="r0">0</div>
+        <div class="r0" :class="data.finalResult === 1 ? 'countSelect' : ''">
+          0
+        </div>
         <div
           class="count oneTwo18 countOdd oneTwo12 oneTwo1"
           :class="data.finalResult === 1 ? 'countSelect' : ''"
