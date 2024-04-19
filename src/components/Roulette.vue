@@ -1,24 +1,54 @@
 <script setup>
-import { defineProps } from "vue";
+import { defineProps, ref, watch } from "vue";
 import Result from "./roulette-result.vue";
+import StakeLoad from "./stakeLoad.vue";
 const props = defineProps({ data: { type: Object } });
 const data = props.data;
+const isOpen = ref(false);
+watch(props, () => {
+  if (
+    props.data.clientSeed === "" ||
+    props.data.serverSeed === "" ||
+    props.data.game === "" ||
+    props.data.nonce === 0
+  ) {
+    isOpen.value = true;
+  } else {
+    isOpen.value = false;
+  }
+});
 </script>
 
 <template>
   <div>
     <div class="wrap svelte-q19e8x">
-      <div class="contents">
-        <div class="btnR1">1 to 18</div>
+      <StakeLoad v-if="isOpen" />
+      <div class="contents" v-else>
+        <div class="btnR1">1-18</div>
         <div class="btnR2">Even</div>
-        <div class="btnR3 btnRed"></div>
-        <div class="btnR4 btnRc"></div>
+        <div class="btnR3 btnRed">
+          <div class="lRed1"></div>
+          <div class="lRed2"></div>
+        </div>
+        <div class="btnR4 btnRc">
+          <div class="lRc1"></div>
+          <div class="lRc2"></div>
+        </div>
         <div class="btnR5">Odd</div>
-        <div class="btnR6">19 to 36</div>
+        <div class="btnR6">19-36</div>
         <div class="countBox"></div>
-        <div class="btnR7">1 to 12</div>
-        <div class="btnR8">13 to 24</div>
-        <div class="btnR9">25 to 36</div>
+        <div class="btnR7">
+          <div style="width: 100%">1st</div>
+          12
+        </div>
+        <div class="btnR8">
+          <div style="width: 100%">2nd</div>
+          12
+        </div>
+        <div class="btnR9">
+          <div style="width: 100%">3rd</div>
+          12
+        </div>
         <div class="countBox"></div>
         <div class="r0" :class="data.finalResult === 0 ? 'countSelect' : ''">
           0
@@ -496,8 +526,8 @@ const data = props.data;
 .btnR1 {
   width: 15%;
   height: 66px;
-  writing-mode: vertical-rl;
-  transform: rotate(360deg);
+  /* writing-mode: vertical-rl;
+  transform: rotate(360deg); */
   text-align: center;
   border-radius: 3px;
   color: #fff;
@@ -508,7 +538,7 @@ const data = props.data;
   vertical-align: baseline;
   box-shadow: inset 0 0 0 1.5px #2f4553;
   cursor: pointer;
-  line-height: 2.8;
+  line-height: 66px;
   font-weight: 700;
   margin-bottom: 1.5%;
 }
@@ -585,8 +615,8 @@ const data = props.data;
 .btnR2 {
   width: 15%;
   height: 66px;
-  writing-mode: vertical-rl;
-  transform: rotate(360deg);
+  /* writing-mode: vertical-rl;
+  transform: rotate(360deg); */
   text-align: center;
   border-radius: 3px;
   color: #fff;
@@ -599,13 +629,14 @@ const data = props.data;
   cursor: pointer;
   font-weight: 700;
   margin-bottom: 1.5%;
-  line-height: 2.8;
+  line-height: 66px;
 }
 .btnR3 {
   width: 15%;
   height: 66px;
-  writing-mode: vertical-rl;
-  transform: rotate(360deg);
+  box-shadow: inset 0 0 0 1.5px #2f4553;
+  /* writing-mode: vertical-rl;
+  transform: rotate(360deg); */
   text-align: center;
   border-radius: 3px;
   color: #fff;
@@ -615,16 +646,37 @@ const data = props.data;
   font: inherit;
   vertical-align: baseline;
   cursor: pointer;
-  line-height: 2.8;
+  line-height: 66px;
   font-weight: 700;
-  background-color: #fe2247;
+  /* background-color: #fe2247; */
   margin-bottom: 1.5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.lRed1 {
+  width: 20px;
+  margin-left: 50%;
+  transform: translate(-50%, 3%);
+  border-top: 0px solid transparent;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 20px solid #fe2247;
+}
+.lRed2 {
+  width: 20px;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  border-bottom: 0px solid transparent;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 20px solid #fe2247;
 }
 .btnR4 {
   width: 15%;
   height: 66px;
-  writing-mode: vertical-rl;
-  transform: rotate(360deg);
+  /* writing-mode: vertical-rl;
+  transform: rotate(360deg); */
   text-align: center;
   border-radius: 3px;
   color: #fff;
@@ -634,16 +686,38 @@ const data = props.data;
   font: inherit;
   vertical-align: baseline;
   cursor: pointer;
-  line-height: 2.8;
+  line-height: 66px;
   font-weight: 700;
-  background-color: #2f4553;
+  /* background-color: #2f4553; */
   margin-bottom: 1.5%;
+  box-shadow: inset 0 0 0 1.5px #2f4553;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.lRc1 {
+  width: 20px;
+  margin-left: 50%;
+  transform: translate(-50%, 3%);
+  border-top: 0px solid transparent;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 20px solid #2f4553;
+}
+.lRc2 {
+  width: 20px;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  border-bottom: 0px solid transparent;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 20px solid #2f4553;
 }
 .btnR5 {
   width: 15%;
   height: 66px;
-  writing-mode: vertical-rl;
-  transform: rotate(360deg);
+  /* writing-mode: vertical-rl;
+  transform: rotate(360deg); */
   text-align: center;
   border-radius: 3px;
   color: #fff;
@@ -654,15 +728,15 @@ const data = props.data;
   vertical-align: baseline;
   box-shadow: inset 0 0 0 1.5px #2f4553;
   cursor: pointer;
-  line-height: 2.8;
+  line-height: 66px;
   font-weight: 700;
   margin-bottom: 1.5%;
 }
 .btnR6 {
   width: 15%;
   height: 66px;
-  writing-mode: vertical-rl;
-  transform: rotate(360deg);
+  /* writing-mode: vertical-rl;
+  transform: rotate(360deg); */
   text-align: center;
   border-radius: 3px;
   color: #fff;
@@ -672,18 +746,24 @@ const data = props.data;
   vertical-align: baseline;
   box-shadow: inset 0 0 0 1.5px #2f4553;
   cursor: pointer;
-  line-height: 2.8;
+  line-height: 66px;
   font-weight: 700;
   margin-bottom: 1.5%;
 }
-.btnRed:hover {
-  background-color: rgba(254, 110, 134, 1);
+.btnRed:hover .lRed1 {
+  border-bottom: 20px solid rgba(254, 110, 134, 1);
+}
+.btnRed:hover .lRed2 {
+  border-top: 20px solid rgba(254, 110, 134, 1);
 }
 .btnRed:hover ~ .count {
   background-color: rgba(254, 110, 134, 1);
 }
-.btnRc:hover {
-  background-color: rgba(75, 110, 132, 1);
+.btnRc:hover .lRc1 {
+  border-bottom: 20px solid rgba(75, 110, 132, 1);
+}
+.btnRc:hover .lRc2 {
+  border-top: 20px solid rgba(75, 110, 132, 1);
 }
 .btnRc:hover ~ .countColor {
   background-color: rgba(75, 110, 132, 1);
@@ -692,8 +772,8 @@ const data = props.data;
   width: 15%;
   height: 135.5px;
   color: #000;
-  writing-mode: vertical-rl;
-  transform: rotate(360deg);
+  /* writing-mode: vertical-rl;
+  transform: rotate(360deg); */
   text-align: center;
   border-radius: 3px;
   color: #fff;
@@ -705,16 +785,17 @@ const data = props.data;
   position: relative;
   cursor: pointer;
   box-shadow: inset 0 0 0 1.5px #2f4553;
-  line-height: 2.8;
+  /* line-height: 135.5px; */
   font-weight: 700;
   margin-bottom: 1.5%;
+  padding-top: 50px;
 }
 .btnR8 {
   width: 15%;
   height: 135.5px;
   color: #000;
-  writing-mode: vertical-rl;
-  transform: rotate(360deg);
+  /* writing-mode: vertical-rl;
+  transform: rotate(360deg); */
   text-align: center;
   border-radius: 3px;
   color: #fff;
@@ -726,17 +807,16 @@ const data = props.data;
   position: relative;
   cursor: pointer;
   box-shadow: inset 0 0 0 1.5px #2f4553;
-
-  line-height: 2.8;
   font-weight: 700;
   margin-bottom: 1.5%;
+  padding-top: 50px;
 }
 .btnR9 {
   width: 15%;
   height: 135.5px;
   color: #000;
-  writing-mode: vertical-rl;
-  transform: rotate(360deg);
+  /* writing-mode: vertical-rl;
+  transform: rotate(360deg); */
   text-align: center;
   border-radius: 3px;
   color: #fff;
@@ -748,8 +828,9 @@ const data = props.data;
   position: relative;
   box-shadow: inset 0 0 0 1.5px #2f4553;
   cursor: pointer;
-  line-height: 2.8;
+  /* line-height: 135.5px; */
   font-weight: 700;
+  padding-top: 50px;
 }
 .count {
   width: 21%;
