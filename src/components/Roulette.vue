@@ -1006,7 +1006,7 @@ watch(props, () => {
   cursor: pointer;
   overflow: hidden;
   text-align: center;
-  line-height: 3.5;
+  line-height: 3.9;
 }
 .count img {
   width: 11px;
@@ -1052,7 +1052,7 @@ watch(props, () => {
   overflow: hidden;
   border-right: 0.5px solid #06030c;
   text-align: center;
-  line-height: 3.5;
+  line-height: 3.9;
 }
 .countColor img {
   width: 11px;
