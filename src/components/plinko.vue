@@ -1,11 +1,23 @@
 <script setup>
-import { defineProps, ref, watch } from "vue";
+import { defineProps, ref, watch, onMounted } from "vue";
 import Show from "./plinko-show.vue";
 import Result from "./plinko-result.vue";
 import StakeLoad from "./stakeLoad.vue";
 const props = defineProps({ data: { type: Object } });
 const data = props.data;
 const isOpen = ref(false);
+onMounted(() => {
+  if (
+    props.data.clientSeed === "" ||
+    props.data.serverSeed === "" ||
+    props.data.game === "" ||
+    props.data.nonce === 0
+  ) {
+    isOpen.value = true;
+  } else {
+    isOpen.value = false;
+  }
+});
 watch(props, () => {
   if (
     props.data.clientSeed === "" ||

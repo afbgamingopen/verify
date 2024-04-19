@@ -1,5 +1,5 @@
 <script setup>
-import { defineProps, ref, watch } from "vue";
+import { defineProps, ref, watch, onMounted } from "vue";
 import Slider from "./dice-slider.vue";
 import Slide from "./dice-slide.vue";
 import Result from "./dice-result.vue";
@@ -7,7 +7,7 @@ import StakeLoad from "./stakeLoad.vue";
 const props = defineProps({ data: { type: Object } });
 const data = props.data;
 const isOpen = ref(false);
-watch(props, () => {
+onMounted(() => {
   if (
     props.data.clientSeed === "" ||
     props.data.serverSeed === "" ||
@@ -19,12 +19,30 @@ watch(props, () => {
     isOpen.value = false;
   }
 });
+watch(
+  props,
+  () => {
+    console.log("props----", props);
+    if (
+      props.data.clientSeed === "" ||
+      props.data.serverSeed === "" ||
+      props.data.game === "" ||
+      props.data.nonce === 0
+    ) {
+      isOpen.value = true;
+    } else {
+      isOpen.value = false;
+    }
+  },
+  { deep: true }
+);
 </script>
 
 <template>
   <div>
     <div class="wrap svelte-q19e8x">
       <StakeLoad v-if="isOpen" />
+      {{ isOpen }}
       <div class="dice-wrap svelte-q19e8x" v-if="!isOpen">
         <Slider :data="data" />
       </div>

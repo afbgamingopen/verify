@@ -1,10 +1,22 @@
 <script setup>
-import { defineProps, ref, watch } from "vue";
+import { defineProps, ref, watch, onMounted } from "vue";
 import Result from "./roulette-result.vue";
 import StakeLoad from "./stakeLoad.vue";
 const props = defineProps({ data: { type: Object } });
 const data = props.data;
 const isOpen = ref(false);
+onMounted(() => {
+  if (
+    props.data.clientSeed === "" ||
+    props.data.serverSeed === "" ||
+    props.data.game === "" ||
+    props.data.nonce === 0
+  ) {
+    isOpen.value = true;
+  } else {
+    isOpen.value = false;
+  }
+});
 watch(props, () => {
   if (
     props.data.clientSeed === "" ||
@@ -24,328 +36,401 @@ watch(props, () => {
     <div class="wrap svelte-q19e8x">
       <StakeLoad v-if="isOpen" />
       <div class="contents" v-else>
-        <div class="btnR1">1-18</div>
-        <div class="btnR2">Even</div>
+        <div class="btnR1">
+          <img src="../assets/rouletteIMG/1.png" alt="" />
+          <img class="hxImg" src="../assets/rouletteIMG/hx.png" alt="" />
+          <img src="../assets/rouletteIMG/1.png" alt="" />
+          <img class="img8" src="../assets/rouletteIMG/8.png" alt="" />
+        </div>
+        <div class="btnR2">
+          <img src="../assets/rouletteIMG/Even.png" alt="" />
+        </div>
         <div class="btnR3 btnRed">
-          <div class="lRed1"></div>
-          <div class="lRed2"></div>
+          <img src="../assets/rouletteIMG/red.png" alt="" />
         </div>
         <div class="btnR4 btnRc">
-          <div class="lRc1"></div>
-          <div class="lRc2"></div>
+          <img src="../assets/rouletteIMG/hei.png" alt="" />
         </div>
-        <div class="btnR5">Odd</div>
-        <div class="btnR6">19-36</div>
+        <div class="btnR5">
+          <img src="../assets/rouletteIMG/Odd.png" alt="" />
+        </div>
+        <div class="btnR6">
+          <img class="img1" src="../assets/rouletteIMG/1.png" alt="" />
+          <img class="img9" src="../assets/rouletteIMG/9.png" alt="" />
+          <img class="hxImg" src="../assets/rouletteIMG/hx.png" alt="" />
+          <img class="img3" src="../assets/rouletteIMG/3.png" alt="" />
+          <img class="img6" src="../assets/rouletteIMG/6.png" alt="" />
+        </div>
         <div class="countBox"></div>
         <div class="btnR7">
-          <div style="width: 100%">1st</div>
-          12
+          <div class="btnRImg7">
+            <img src="../assets/rouletteIMG/1st.png" alt="" />
+          </div>
+          <img src="../assets/rouletteIMG/1.png" alt="" />
+          <img class="img2" src="../assets/rouletteIMG/2.png" alt="" />
         </div>
         <div class="btnR8">
-          <div style="width: 100%">2nd</div>
-          12
+          <div class="btnRImg8">
+            <img src="../assets/rouletteIMG/2nd.png" alt="" />
+          </div>
+          <img src="../assets/rouletteIMG/1.png" alt="" />
+          <img class="img2" src="../assets/rouletteIMG/2.png" alt="" />
         </div>
         <div class="btnR9">
-          <div style="width: 100%">3rd</div>
-          12
+          <div class="btnRImg9">
+            <img src="../assets/rouletteIMG/3rd.png" alt="" />
+          </div>
+          <img src="../assets/rouletteIMG/1.png" alt="" />
+          <img class="img2" src="../assets/rouletteIMG/2.png" alt="" />
         </div>
         <div class="countBox"></div>
         <div class="r0" :class="data.finalResult === 0 ? 'countSelect' : ''">
-          0
+          <img class="img0" src="../assets/rouletteIMG/0.png" alt="" />
         </div>
         <div
           class="count oneTwo18 countOdd oneTwo12 oneTwo1"
           :class="data.finalResult === 1 ? 'countSelect' : ''"
         >
-          1
+          <img src="../assets/rouletteIMG/1.png" alt="" />
         </div>
         <div
           class="countColor oneTwo18Rc countEvenRc oneTwo12Rc oneTwo1Rc"
           :class="data.finalResult === 4 ? 'countSelect' : ''"
         >
-          4
+          <img class="img4" src="../assets/rouletteIMG/4.png" alt="" />
         </div>
         <div
           class="count oneTwo18 countOdd oneTwo12 oneTwo1"
           :class="data.finalResult === 7 ? 'countSelect' : ''"
         >
-          7
+          <img class="img7" src="../assets/rouletteIMG/7.png" alt="" />
         </div>
         <div
           class="countColor oneTwo18Rc countEvenRc oneTwo12Rc oneTwo1Rc"
           :class="data.finalResult === 10 ? 'countSelect' : ''"
         >
-          10
+          <img src="../assets/rouletteIMG/1.png" alt="" />
+          <img class="img0" src="../assets/rouletteIMG/0.png" alt="" />
         </div>
         <div
           class="countColor oneTwo18Rc countOddRc two24Rc oneTwo1Rc"
           :class="data.finalResult === 13 ? 'countSelect' : ''"
         >
-          13
+          <img src="../assets/rouletteIMG/1.png" alt="" />
+          <img class="img3" src="../assets/rouletteIMG/3.png" alt="" />
         </div>
         <div
           class="count oneTwo18 countEven two24 oneTwo1"
           :class="data.finalResult === 16 ? 'countSelect' : ''"
         >
-          16
+          <img src="../assets/rouletteIMG/1.png" alt="" />
+          <img class="img6" src="../assets/rouletteIMG/6.png" alt="" />
         </div>
         <div
           class="count countOdd to36 two24 oneTwo1Rc"
           :class="data.finalResult === 19 ? 'countSelect' : ''"
         >
-          19
+          <img src="../assets/rouletteIMG/1.png" alt="" />
+          <img class="img9" src="../assets/rouletteIMG/9.png" alt="" />
         </div>
         <div
           class="countColor countEvenRc to36Rc two24Rc oneTwo1Rc"
           :class="data.finalResult === 22 ? 'countSelect' : ''"
         >
-          22
+          <img class="img2" src="../assets/rouletteIMG/2.png" alt="" />
+          <img class="img2" src="../assets/rouletteIMG/2.png" alt="" />
         </div>
         <div
           class="count countOdd to36 count36 oneTwo1"
           :class="data.finalResult === 25 ? 'countSelect' : ''"
         >
-          25
+          <img class="img2" src="../assets/rouletteIMG/2.png" alt="" />
+          <img class="img5" src="../assets/rouletteIMG/5.png" alt="" />
         </div>
         <div
           class="countColor countEvenRc to36Rc count36Rc oneTwo1Rc"
           :class="data.finalResult === 28 ? 'countSelect' : ''"
         >
-          28
+          <img class="img2" src="../assets/rouletteIMG/2.png" alt="" />
+          <img class="img8" src="../assets/rouletteIMG/8.png" alt="" />
         </div>
         <div
           class="countColor countOddRc to36Rc count36Rc oneTwo1Rc"
           :class="data.finalResult === 31 ? 'countSelect' : ''"
         >
-          31
+          <img class="img3" src="../assets/rouletteIMG/3.png" alt="" />
+          <img src="../assets/rouletteIMG/1.png" alt="" />
         </div>
         <div
           class="count countEven to36 count36 oneTwo1"
           :class="data.finalResult === 34 ? 'countSelect' : ''"
         >
-          34
+          <img class="img3" src="../assets/rouletteIMG/3.png" alt="" />
+          <img class="img4" src="../assets/rouletteIMG/4.png" alt="" />
         </div>
-        <div class="countBottom1">2:1</div>
+        <div class="countBottom1">
+          <img class="img2" src="../assets/rouletteIMG/2.png" alt="" />
+          <img class="img_" src="../assets/rouletteIMG/_.png" alt="" />
+          <img class="img1" src="../assets/rouletteIMG/1.png" alt="" />
+        </div>
+        <div class="imgZc1"></div>
 
         <div
           class="countColor oneTwo18Rc countEvenRc oneTwo12Rc to235Rc"
           :class="data.finalResult === 2 ? 'countSelect' : ''"
         >
-          2
+          <img class="img2" src="../assets/rouletteIMG/2.png" alt="" />
         </div>
         <div
           class="count oneTwo18 countOdd oneTwo12 to235"
           :class="data.finalResult === 5 ? 'countSelect' : ''"
         >
-          5
+          <img class="img5" src="../assets/rouletteIMG/5.png" alt="" />
         </div>
         <div
           class="countColor oneTwo18Rc countEvenRc oneTwo12Rc to235Rc"
           :class="data.finalResult === 8 ? 'countSelect' : ''"
         >
-          8
+          <img class="img8" src="../assets/rouletteIMG/8.png" alt="" />
         </div>
         <div
           class="countColor oneTwo18Rc countOddRc oneTwo12Rc to235Rc"
           :class="data.finalResult === 11 ? 'countSelect' : ''"
         >
-          11
+          <img src="../assets/rouletteIMG/1.png" alt="" />
+          <img src="../assets/rouletteIMG/1.png" alt="" />
         </div>
         <div
           class="count oneTwo18 countEven two24 to235"
           :class="data.finalResult === 14 ? 'countSelect' : ''"
         >
-          14
+          <img src="../assets/rouletteIMG/1.png" alt="" />
+          <img class="img4" src="../assets/rouletteIMG/4.png" alt="" />
         </div>
         <div
           class="countColor oneTwo18Rc countOddRc two24Rc to235Rc"
           :class="data.finalResult === 17 ? 'countSelect' : ''"
         >
-          17
+          <img src="../assets/rouletteIMG/1.png" alt="" />
+          <img class="img7" src="../assets/rouletteIMG/7.png" alt="" />
         </div>
         <div
           class="countColor countEvenRc to36Rc two24Rc to235Rc"
           :class="data.finalResult === 20 ? 'countSelect' : ''"
         >
-          20
+          <img class="img2" src="../assets/rouletteIMG/2.png" alt="" />
+          <img class="img0" src="../assets/rouletteIMG/0.png" alt="" />
         </div>
         <div
           class="count countOdd to36 two24 to235"
           :class="data.finalResult === 23 ? 'countSelect' : ''"
         >
-          23
+          <img class="img2" src="../assets/rouletteIMG/2.png" alt="" />
+          <img class="img3" src="../assets/rouletteIMG/3.png" alt="" />
         </div>
         <div
           class="countColor countEvenRc to36Rc count36Rc to235Rc"
           :class="data.finalResult === 26 ? 'countSelect' : ''"
         >
-          26
+          <img class="img2" src="../assets/rouletteIMG/2.png" alt="" />
+          <img class="img6" src="../assets/rouletteIMG/6.png" alt="" />
         </div>
         <div
           class="countColor countOddRc to36Rc count36Rc to235Rc"
           :class="data.finalResult === 29 ? 'countSelect' : ''"
         >
-          29
+          <img class="img2" src="../assets/rouletteIMG/2.png" alt="" />
+          <img class="img9" src="../assets/rouletteIMG/9.png" alt="" />
         </div>
         <div
           class="count countEven to36 count36 to235"
           :class="data.finalResult === 32 ? 'countSelect' : ''"
         >
-          32
+          <img class="img3" src="../assets/rouletteIMG/3.png" alt="" />
+          <img class="img2" src="../assets/rouletteIMG/2.png" alt="" />
         </div>
         <div
           class="countColor countOddRc to36Rc count36Rc to235Rc"
           :class="data.finalResult === 35 ? 'countSelect' : ''"
         >
-          35
+          <img class="img3" src="../assets/rouletteIMG/3.png" alt="" />
+          <img class="img5" src="../assets/rouletteIMG/5.png" alt="" />
         </div>
-        <div class="countBottom2">2:1</div>
+        <div class="countBottom2">
+          <img class="img2" src="../assets/rouletteIMG/2.png" alt="" />
+          <img class="img_" src="../assets/rouletteIMG/_.png" alt="" />
+          <img class="img1" src="../assets/rouletteIMG/1.png" alt="" />
+        </div>
+        <div class="imgZc2"></div>
 
         <div
           class="count oneTwo18 countOdd oneTwo12 to336"
           :class="data.finalResult === 3 ? 'countSelect' : ''"
         >
-          3
+          <img class="img3" src="../assets/rouletteIMG/3.png" alt="" />
         </div>
         <div
           class="countColor oneTwo18Rc countEvenRc oneTwo12Rc to336Rc"
           :class="data.finalResult === 6 ? 'countSelect' : ''"
         >
-          6
+          <img class="img6" src="../assets/rouletteIMG/6.png" alt="" />
         </div>
         <div
           class="count oneTwo18 countOdd oneTwo12 to336"
           :class="data.finalResult === 9 ? 'countSelect' : ''"
         >
-          9
+          <img class="img9" src="../assets/rouletteIMG/9.png" alt="" />
         </div>
         <div
           class="count oneTwo18 countEven oneTwo12 to336"
           :class="data.finalResult === 12 ? 'countSelect' : ''"
         >
-          12
+          <img src="../assets/rouletteIMG/1.png" alt="" />
+          <img class="img2" src="../assets/rouletteIMG/2.png" alt="" />
         </div>
         <div
           class="countColor oneTwo18Rc countOddRc two24Rc to336Rc"
           :class="data.finalResult === 15 ? 'countSelect' : ''"
         >
-          15
+          <img src="../assets/rouletteIMG/1.png" alt="" />
+          <img class="img5" src="../assets/rouletteIMG/5.png" alt="" />
         </div>
         <div
           class="count oneTwo18 countEven two24 to336"
           :class="data.finalResult === 18 ? 'countSelect' : ''"
         >
-          18
+          <img src="../assets/rouletteIMG/1.png" alt="" />
+          <img class="img8" src="../assets/rouletteIMG/8.png" alt="" />
         </div>
         <div
           class="count countOdd to36 two24 to336"
           :class="data.finalResult === 21 ? 'countSelect' : ''"
         >
-          21
+          <img class="img2" src="../assets/rouletteIMG/2.png" alt="" />
+          <img src="../assets/rouletteIMG/1.png" alt="" />
         </div>
         <div
           class="countColor countEvenRc to36Rc two24Rc to336Rc"
           :class="data.finalResult === 24 ? 'countSelect' : ''"
         >
-          24
+          <img class="img2" src="../assets/rouletteIMG/2.png" alt="" />
+          <img class="img4" src="../assets/rouletteIMG/4.png" alt="" />
         </div>
         <div
           class="count countOdd to36 count36 to336"
           :class="data.finalResult === 27 ? 'countSelect' : ''"
         >
-          27
+          <img class="img2" src="../assets/rouletteIMG/2.png" alt="" />
+          <img class="img7" src="../assets/rouletteIMG/7.png" alt="" />
         </div>
         <div
           class="count countEven to36 count36 to336"
           :class="data.finalResult === 30 ? 'countSelect' : ''"
         >
-          30
+          <img class="img3" src="../assets/rouletteIMG/3.png" alt="" />
+          <img class="img0" src="../assets/rouletteIMG/0.png" alt="" />
         </div>
         <div
           class="countColor countOddRc to36Rc count36Rc to336Rc"
           :class="data.finalResult === 33 ? 'countSelect' : ''"
         >
-          33
+          <img class="img3" src="../assets/rouletteIMG/3.png" alt="" />
+          <img class="img3" src="../assets/rouletteIMG/3.png" alt="" />
         </div>
         <div
           class="count countEven to36 count36 to336"
           :class="data.finalResult === 36 ? 'countSelect' : ''"
         >
-          36
+          <img class="img3" src="../assets/rouletteIMG/3.png" alt="" />
+          <img class="img6" src="../assets/rouletteIMG/6.png" alt="" />
         </div>
-        <div class="countBottom3">2:1</div>
+        <div class="countBottom3">
+          <img class="img2" src="../assets/rouletteIMG/2.png" alt="" />
+          <img class="img_" src="../assets/rouletteIMG/_.png" alt="" />
+          <img class="img1" src="../assets/rouletteIMG/1.png" alt="" />
+        </div>
+        <div class="imgZc3"></div>
         <div class="bottomBgc1">
           <div
             class="count oneTwo1"
             :class="data.finalResult === 1 ? 'countSelect' : ''"
           >
-            1
+            <img src="../assets/rouletteIMG/1.png" alt="" />
           </div>
           <div
             class="countColor oneTwo1Rc"
             :class="data.finalResult === 4 ? 'countSelect' : ''"
           >
-            4
+            <img class="img4" src="../assets/rouletteIMG/4.png" alt="" />
           </div>
           <div
             class="count oneTwo1"
             :class="data.finalResult === 7 ? 'countSelect' : ''"
           >
-            7
+            <img class="img7" src="../assets/rouletteIMG/7.png" alt="" />
           </div>
           <div
             class="countColor oneTwo1Rc"
             :class="data.finalResult === 10 ? 'countSelect' : ''"
           >
-            10
+            <img src="../assets/rouletteIMG/1.png" alt="" />
+            <img class="img0" src="../assets/rouletteIMG/0.png" alt="" />
           </div>
           <div
             class="countColor oneTwo1Rc"
             :class="data.finalResult === 13 ? 'countSelect' : ''"
           >
-            13
+            <img src="../assets/rouletteIMG/1.png" alt="" />
+            <img class="img3" src="../assets/rouletteIMG/3.png" alt="" />
           </div>
           <div
             class="count oneTwo1"
             :class="data.finalResult === 16 ? 'countSelect' : ''"
           >
-            16
+            <img src="../assets/rouletteIMG/1.png" alt="" />
+            <img class="img6" src="../assets/rouletteIMG/6.png" alt="" />
           </div>
           <div
             class="count oneTwo1Rc"
             :class="data.finalResult === 19 ? 'countSelect' : ''"
           >
-            19
+            <img src="../assets/rouletteIMG/1.png" alt="" />
+            <img class="img9" src="../assets/rouletteIMG/9.png" alt="" />
           </div>
           <div
             class="countColor oneTwo1Rc"
             :class="data.finalResult === 22 ? 'countSelect' : ''"
           >
-            22
+            <img class="img2" src="../assets/rouletteIMG/2.png" alt="" />
+            <img class="img2" src="../assets/rouletteIMG/2.png" alt="" />
           </div>
           <div
             class="count oneTwo1"
             :class="data.finalResult === 25 ? 'countSelect' : ''"
           >
-            25
+            <img class="img2" src="../assets/rouletteIMG/2.png" alt="" />
+            <img class="img5" src="../assets/rouletteIMG/5.png" alt="" />
           </div>
           <div
             class="countColor oneTwo1Rc"
             :class="data.finalResult === 28 ? 'countSelect' : ''"
           >
-            28
+            <img class="img2" src="../assets/rouletteIMG/2.png" alt="" />
+            <img class="img8" src="../assets/rouletteIMG/8.png" alt="" />
           </div>
           <div
             class="countColor oneTwo1Rc"
             :class="data.finalResult === 31 ? 'countSelect' : ''"
           >
-            31
+            <img class="img3" src="../assets/rouletteIMG/3.png" alt="" />
+            <img src="../assets/rouletteIMG/1.png" alt="" />
           </div>
           <div
             class="count oneTwo1"
             :class="data.finalResult === 34 ? 'countSelect' : ''"
           >
-            34
+            <img class="img3" src="../assets/rouletteIMG/3.png" alt="" />
+            <img class="img4" src="../assets/rouletteIMG/4.png" alt="" />
           </div>
         </div>
         <div class="bottomBgc2">
@@ -353,73 +438,82 @@ watch(props, () => {
             class="countColor to235Rc"
             :class="data.finalResult === 2 ? 'countSelect' : ''"
           >
-            2
+            <img class="img2" src="../assets/rouletteIMG/2.png" alt="" />
           </div>
           <div
             class="count to235"
             :class="data.finalResult === 5 ? 'countSelect' : ''"
           >
-            5
+            <img class="img5" src="../assets/rouletteIMG/5.png" alt="" />
           </div>
           <div
             class="countColor to235Rc"
             :class="data.finalResult === 8 ? 'countSelect' : ''"
           >
-            8
+            <img class="img8" src="../assets/rouletteIMG/8.png" alt="" />
           </div>
           <div
             class="countColor to235Rc"
             :class="data.finalResult === 11 ? 'countSelect' : ''"
           >
-            11
+            <img src="../assets/rouletteIMG/1.png" alt="" />
+            <img src="../assets/rouletteIMG/1.png" alt="" />
           </div>
           <div
             class="count to235"
             :class="data.finalResult === 14 ? 'countSelect' : ''"
           >
-            14
+            <img src="../assets/rouletteIMG/1.png" alt="" />
+            <img class="img4" src="../assets/rouletteIMG/4.png" alt="" />
           </div>
           <div
             class="countColor to235Rc"
             :class="data.finalResult === 17 ? 'countSelect' : ''"
           >
-            17
+            <img src="../assets/rouletteIMG/1.png" alt="" />
+            <img class="img7" src="../assets/rouletteIMG/7.png" alt="" />
           </div>
           <div
             class="countColor to235Rc"
             :class="data.finalResult === 20 ? 'countSelect' : ''"
           >
-            20
+            <img class="img2" src="../assets/rouletteIMG/2.png" alt="" />
+            <img class="img0" src="../assets/rouletteIMG/0.png" alt="" />
           </div>
           <div
             class="count to235"
             :class="data.finalResult === 23 ? 'countSelect' : ''"
           >
-            23
+            <img class="img2" src="../assets/rouletteIMG/2.png" alt="" />
+            <img class="img3" src="../assets/rouletteIMG/3.png" alt="" />
           </div>
           <div
             class="countColor to235Rc"
             :class="data.finalResult === 26 ? 'countSelect' : ''"
           >
-            26
+            <img class="img2" src="../assets/rouletteIMG/2.png" alt="" />
+            <img class="img6" src="../assets/rouletteIMG/6.png" alt="" />
           </div>
           <div
             class="countColor to235Rc"
             :class="data.finalResult === 29 ? 'countSelect' : ''"
           >
-            29
+            <img class="img2" src="../assets/rouletteIMG/2.png" alt="" />
+            <img class="img9" src="../assets/rouletteIMG/9.png" alt="" />
           </div>
           <div
             class="count to235"
             :class="data.finalResult === 32 ? 'countSelect' : ''"
           >
-            32
+            <img class="img3" src="../assets/rouletteIMG/3.png" alt="" />
+            <img class="img2" src="../assets/rouletteIMG/2.png" alt="" />
           </div>
           <div
             class="countColor to235Rc"
             :class="data.finalResult === 35 ? 'countSelect' : ''"
           >
-            35
+            <img class="img3" src="../assets/rouletteIMG/3.png" alt="" />
+            <img class="img5" src="../assets/rouletteIMG/5.png" alt="" />
           </div>
         </div>
         <div class="bottomBgc3">
@@ -427,78 +521,87 @@ watch(props, () => {
             class="count oneTwo18 countOdd oneTwo12 to336"
             :class="data.finalResult === 3 ? 'countSelect' : ''"
           >
-            3
+            <img class="img3" src="../assets/rouletteIMG/3.png" alt="" />
           </div>
           <div
             class="countColor oneTwo18Rc countEvenRc oneTwo12Rc to336Rc"
             :class="data.finalResult === 6 ? 'countSelect' : ''"
           >
-            6
+            <img class="img6" src="../assets/rouletteIMG/6.png" alt="" />
           </div>
           <div
             class="count oneTwo18 countOdd oneTwo12 to336"
             :class="data.finalResult === 9 ? 'countSelect' : ''"
           >
-            9
+            <img class="img9" src="../assets/rouletteIMG/9.png" alt="" />
           </div>
           <div
             class="count oneTwo18 countEven oneTwo12 to336"
             :class="data.finalResult === 12 ? 'countSelect' : ''"
           >
-            12
+            <img src="../assets/rouletteIMG/1.png" alt="" />
+            <img class="img2" src="../assets/rouletteIMG/2.png" alt="" />
           </div>
           <div
             class="countColor oneTwo18Rc countOddRc two24Rc to336Rc"
             :class="data.finalResult === 15 ? 'countSelect' : ''"
           >
-            15
+            <img src="../assets/rouletteIMG/1.png" alt="" />
+            <img class="img5" src="../assets/rouletteIMG/5.png" alt="" />
           </div>
           <div
             class="count oneTwo18 countEven two24 to336"
             :class="data.finalResult === 18 ? 'countSelect' : ''"
           >
-            18
+            <img src="../assets/rouletteIMG/1.png" alt="" />
+            <img class="img8" src="../assets/rouletteIMG/8.png" alt="" />
           </div>
           <div
             class="count countOdd to36 two24 to336"
             :class="data.finalResult === 21 ? 'countSelect' : ''"
           >
-            21
+            <img class="img2" src="../assets/rouletteIMG/2.png" alt="" />
+            <img src="../assets/rouletteIMG/1.png" alt="" />
           </div>
           <div
             class="countColor countEvenRc to36Rc two24Rc to336Rc"
             :class="data.finalResult === 24 ? 'countSelect' : ''"
           >
-            24
+            <img class="img2" src="../assets/rouletteIMG/2.png" alt="" />
+            <img class="img4" src="../assets/rouletteIMG/4.png" alt="" />
           </div>
           <div
             class="count countOdd to36 count36 to336"
             :class="data.finalResult === 27 ? 'countSelect' : ''"
           >
-            27
+            <img class="img2" src="../assets/rouletteIMG/2.png" alt="" />
+            <img class="img7" src="../assets/rouletteIMG/7.png" alt="" />
           </div>
           <div
             class="count countEven to36 count36 to336"
             :class="data.finalResult === 30 ? 'countSelect' : ''"
           >
-            30
+            <img class="img3" src="../assets/rouletteIMG/3.png" alt="" />
+            <img class="img0" src="../assets/rouletteIMG/0.png" alt="" />
           </div>
           <div
             class="countColor countOddRc to36Rc count36Rc to336Rc"
             :class="data.finalResult === 33 ? 'countSelect' : ''"
           >
-            33
+            <img class="img3" src="../assets/rouletteIMG/3.png" alt="" />
+            <img class="img3" src="../assets/rouletteIMG/3.png" alt="" />
           </div>
           <div
             class="count countEven to36 count36 to336"
             :class="data.finalResult === 36 ? 'countSelect' : ''"
           >
-            36
+            <img class="img3" src="../assets/rouletteIMG/3.png" alt="" />
+            <img class="img6" src="../assets/rouletteIMG/6.png" alt="" />
           </div>
         </div>
       </div>
     </div>
-    <Result :data="data" />
+    <Result :data="data" v-if="!isOpen" />
   </div>
 </template>
 
@@ -510,135 +613,154 @@ watch(props, () => {
   width: 100%;
   max-width: 700px;
   border: dotted 2px var(--grey-400);
-  padding: 3.5em 1em 1em;
+  padding: 4em 1em 2em;
 }
 .contents {
   position: relative;
-  width: 230px;
-  height: 450px;
+  width: 260px;
+  height: 500px;
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
+  box-sizing: border-box;
 }
 .countSelect {
   box-shadow: inset 0 0 0 2px #1fff20;
 }
 .btnR1 {
-  width: 15%;
-  height: 66px;
+  width: 15.5%;
+  height: 75.5px;
   /* writing-mode: vertical-rl;
   transform: rotate(360deg); */
   text-align: center;
-  border-radius: 3px;
   color: #fff;
   white-space: nowrap;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   font-weight: 600;
   font: inherit;
   vertical-align: baseline;
-  box-shadow: inset 0 0 0 1.5px #2f4553;
+  /*box-shadow: inset 0 0 0 1px #06030c;*/
+  border: 1px solid #06030c;
+  border-right: 0px solid #06030c;
   cursor: pointer;
-  line-height: 66px;
   font-weight: 700;
-  margin-bottom: 1.5%;
+  padding-top: 22px;
+  background-color: #4b1f80;
+}
+.btnR1 img {
+  width: 8px;
+  vertical-align: bottom;
+}
+.btnR1 .hxImg {
+  transform: translateY(3px);
+}
+.btnR1 .img8 {
+  width: 9px;
 }
 .btnR1:hover {
-  background-color: rgba(47, 69, 83, 1);
+  background-color: #8862b9;
 }
 .btnR1:hover ~ .oneTwo18 {
-  background-color: rgba(254, 110, 134, 1);
+  background-color: #b76578;
 }
 .btnR1:hover ~ .oneTwo18Rc {
-  background-color: rgba(75, 110, 132, 1);
+  background-color: #676a78;
 }
 .btnR2:hover {
-  background-color: rgba(47, 69, 83, 1);
+  background-color: #8862b9;
 }
 .btnR2:hover ~ .countEven {
-  background-color: rgba(254, 110, 134, 1);
+  background-color: #b76578;
 }
 .btnR2:hover ~ .countEvenRc {
-  background-color: rgba(75, 110, 132, 1);
+  background-color: #676a78;
 }
 .btnR5:hover {
-  background-color: rgba(47, 69, 83, 1);
+  background-color: #8862b9;
 }
 .btnR5:hover ~ .countOdd {
-  background-color: rgba(254, 110, 134, 1);
+  background-color: #b76578;
 }
 .btnR5:hover ~ .countOddRc {
-  background-color: rgba(75, 110, 132, 1);
+  background-color: #676a78;
 }
 .btnR6:hover {
-  background-color: rgba(47, 69, 83, 1);
+  background-color: #8862b9;
 }
 .btnR6:hover ~ .to36 {
-  background-color: rgba(254, 110, 134, 1);
+  background-color: #b76578;
 }
 .btnR6:hover ~ .to36Rc {
-  background-color: rgba(75, 110, 132, 1);
+  background-color: #676a78;
 }
 .btnR7:hover {
-  background-color: rgba(47, 69, 83, 1);
+  background-color: #8862b9;
 }
 .btnR7:hover ~ .oneTwo12 {
-  background-color: rgba(254, 110, 134, 1);
+  background-color: #b76578;
 }
 .btnR7:hover ~ .oneTwo12Rc {
-  background-color: rgba(75, 110, 132, 1);
+  background-color: #676a78;
 }
 .btnR8:hover {
-  background-color: rgba(47, 69, 83, 1);
+  background-color: #8862b9;
 }
 .btnR8:hover ~ .two24 {
-  background-color: rgba(254, 110, 134, 1);
+  background-color: #b76578;
 }
 .btnR8:hover ~ .two24Rc {
-  background-color: rgba(75, 110, 132, 1);
+  background-color: #676a78;
 }
 .btnR9:hover {
-  background-color: rgba(47, 69, 83, 1);
+  background-color: #8862b9;
 }
 .btnR9:hover ~ .count36 {
-  background-color: rgba(254, 110, 134, 1);
+  background-color: #b76578;
 }
 .btnR9:hover ~ .count36Rc {
-  background-color: rgba(75, 110, 132, 1);
+  background-color: #676a78;
 }
 
 .count:hover {
-  background-color: rgba(254, 110, 134, 1);
+  background-color: #b76578;
 }
 .countColor:hover {
-  background-color: rgba(75, 110, 132, 1);
+  background-color: #676a78;
 }
 .btnR2 {
-  width: 15%;
-  height: 66px;
+  background-color: #4b1f80;
+  width: 15.5%;
+  height: 75.5px;
   /* writing-mode: vertical-rl;
   transform: rotate(360deg); */
   text-align: center;
-  border-radius: 3px;
   color: #fff;
   white-space: nowrap;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   font-weight: 600;
   font: inherit;
   vertical-align: baseline;
-  box-shadow: inset 0 0 0 1.5px #2f4553;
+  /*box-shadow: inset 0 0 0 1px #06030c;*/
+  border: 1px solid #06030c;
+  border-right: 0px solid #06030c;
   cursor: pointer;
   font-weight: 700;
-  margin-bottom: 1.5%;
-  line-height: 66px;
+  padding-top: 22px;
+}
+.btnR2 img {
+  width: 35px;
+  vertical-align: bottom;
 }
 .btnR3 {
-  width: 15%;
-  height: 66px;
-  box-shadow: inset 0 0 0 1.5px #2f4553;
+  width: 15.5%;
+  height: 75.5px;
+  /*box-shadow: inset 0 0 0 1px #06030c;*/
+  border: 1px solid #06030c;
+  border-right: 0px solid #06030c;
   /* writing-mode: vertical-rl;
   transform: rotate(360deg); */
   text-align: center;
-  border-radius: 3px;
+
   color: #fff;
   white-space: nowrap;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
@@ -646,39 +768,26 @@ watch(props, () => {
   font: inherit;
   vertical-align: baseline;
   cursor: pointer;
-  line-height: 66px;
+
   font-weight: 700;
   /* background-color: #fe2247; */
-  margin-bottom: 1.5%;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  background-color: #4b1f80;
 }
-.lRed1 {
-  width: 20px;
-  margin-left: 50%;
-  transform: translate(-50%, 3%);
-  border-top: 0px solid transparent;
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
-  border-bottom: 20px solid #fe2247;
+.btnR3 img {
+  width: 25px;
+  margin: auto;
 }
-.lRed2 {
-  width: 20px;
-  margin-left: 50%;
-  transform: translateX(-50%);
-  border-bottom: 0px solid transparent;
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
-  border-top: 20px solid #fe2247;
-}
+
 .btnR4 {
-  width: 15%;
-  height: 66px;
+  width: 15.5%;
+  height: 75.5px;
   /* writing-mode: vertical-rl;
   transform: rotate(360deg); */
   text-align: center;
-  border-radius: 3px;
+
   color: #fff;
   white-space: nowrap;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
@@ -686,15 +795,22 @@ watch(props, () => {
   font: inherit;
   vertical-align: baseline;
   cursor: pointer;
-  line-height: 66px;
+
   font-weight: 700;
   /* background-color: #2f4553; */
-  margin-bottom: 1.5%;
-  box-shadow: inset 0 0 0 1.5px #2f4553;
+  /*box-shadow: inset 0 0 0 1px #06030c;*/
+  border: 1px solid #06030c;
+  border-right: 0px solid #06030c;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  background-color: #4b1f80;
 }
+.btnR4 img {
+  width: 25px;
+  margin: auto;
+}
+
 .lRc1 {
   width: 20px;
   margin-left: 50%;
@@ -714,311 +830,688 @@ watch(props, () => {
   border-top: 20px solid #2f4553;
 }
 .btnR5 {
-  width: 15%;
-  height: 66px;
-  /* writing-mode: vertical-rl;
-  transform: rotate(360deg); */
+  width: 15.5%;
+  height: 75.5px;
   text-align: center;
-  border-radius: 3px;
   color: #fff;
   white-space: nowrap;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   font-weight: 600;
   font: inherit;
   vertical-align: baseline;
-  box-shadow: inset 0 0 0 1.5px #2f4553;
+  /*box-shadow: inset 0 0 0 1px #06030c;*/
+  border: 1px solid #06030c;
+  border-right: 0px solid #06030c;
   cursor: pointer;
-  line-height: 66px;
   font-weight: 700;
-  margin-bottom: 1.5%;
+  padding-top: 23px;
+  background-color: #4b1f80;
+}
+.btnR5 img {
+  width: 34px;
+  vertical-align: bottom;
 }
 .btnR6 {
-  width: 15%;
-  height: 66px;
+  width: 15.5%;
+  height: 75.5px;
   /* writing-mode: vertical-rl;
   transform: rotate(360deg); */
   text-align: center;
-  border-radius: 3px;
   color: #fff;
   white-space: nowrap;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   font: inherit;
   vertical-align: baseline;
-  box-shadow: inset 0 0 0 1.5px #2f4553;
+  /*box-shadow: inset 0 0 0 1px #06030c;*/
+  border: 1px solid #06030c;
+  border-right: 0px solid #06030c;
   cursor: pointer;
-  line-height: 66px;
+
   font-weight: 700;
-  margin-bottom: 1.5%;
+  background-color: #4b1f80;
+  padding-top: 22px;
+}
+.btnR6 img {
+  width: 7px;
+  vertical-align: bottom;
+}
+.btnR6 .hxImg {
+  transform: translateY(3px);
+}
+.btnR6 .img1 {
+  width: 6px;
+}
+.btnR6 .img3 {
+  width: 8px;
+}
+.btnR6 .img6 {
+  width: 8px;
+}
+.btnRed:hover {
+  background-color: #8862b9;
 }
 .btnRed:hover .lRed1 {
-  border-bottom: 20px solid rgba(254, 110, 134, 1);
+  border-bottom: 20px solid #b76578;
 }
 .btnRed:hover .lRed2 {
-  border-top: 20px solid rgba(254, 110, 134, 1);
+  border-top: 20px solid #b76578;
 }
 .btnRed:hover ~ .count {
-  background-color: rgba(254, 110, 134, 1);
+  background-color: #b76578;
+}
+.btnRc:hover {
+  background-color: #8862b9;
 }
 .btnRc:hover .lRc1 {
-  border-bottom: 20px solid rgba(75, 110, 132, 1);
+  border-bottom: 20px solid #676a78;
 }
 .btnRc:hover .lRc2 {
-  border-top: 20px solid rgba(75, 110, 132, 1);
+  border-top: 20px solid #676a78;
 }
 .btnRc:hover ~ .countColor {
-  background-color: rgba(75, 110, 132, 1);
+  background-color: #676a78;
 }
 .btnR7 {
-  width: 15%;
-  height: 135.5px;
+  width: 15.5%;
+  height: 151px;
   color: #000;
-  /* writing-mode: vertical-rl;
-  transform: rotate(360deg); */
   text-align: center;
-  border-radius: 3px;
   color: #fff;
   white-space: nowrap;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   font: inherit;
   vertical-align: baseline;
-  box-shadow: inset 0 0 0 1.5px #2f4553;
+  /*box-shadow: inset 0 0 0 1px #06030c;*/
+  border: 1px solid #06030c;
   position: relative;
   cursor: pointer;
-  box-shadow: inset 0 0 0 1.5px #2f4553;
-  /* line-height: 135.5px; */
+
   font-weight: 700;
-  margin-bottom: 1.5%;
   padding-top: 50px;
+  background-color: #4b1f80;
+}
+.btnR7 img {
+  width: 9px;
+}
+.btnR7 .img2 {
+  width: 11px;
+}
+.btnRImg7 img {
+  width: 28px;
 }
 .btnR8 {
-  width: 15%;
-  height: 135.5px;
+  width: 15.5%;
+  height: 151px;
   color: #000;
-  /* writing-mode: vertical-rl;
-  transform: rotate(360deg); */
   text-align: center;
-  border-radius: 3px;
   color: #fff;
   white-space: nowrap;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   font: inherit;
   vertical-align: baseline;
-  box-shadow: inset 0 0 0 1.5px #2f4553;
+
   position: relative;
   cursor: pointer;
-  box-shadow: inset 0 0 0 1.5px #2f4553;
+  /*box-shadow: inset 0 0 0 1px #06030c;*/
+  border: 1px solid #06030c;
   font-weight: 700;
-  margin-bottom: 1.5%;
   padding-top: 50px;
+  background-color: #4b1f80;
+}
+.btnR8 img {
+  width: 9px;
+}
+.btnR8 .img2 {
+  width: 11px;
+}
+.btnRImg8 img {
+  width: 34px;
 }
 .btnR9 {
-  width: 15%;
-  height: 135.5px;
+  width: 15.5%;
+  height: 151px;
   color: #000;
-  /* writing-mode: vertical-rl;
-  transform: rotate(360deg); */
   text-align: center;
-  border-radius: 3px;
   color: #fff;
   white-space: nowrap;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   font: inherit;
   vertical-align: baseline;
-  box-shadow: inset 0 0 0 1.5px #2f4553;
+  /*box-shadow: inset 0 0 0 1px #06030c;*/
+  border: 1px solid #06030c;
   position: relative;
-  box-shadow: inset 0 0 0 1.5px #2f4553;
   cursor: pointer;
-  /* line-height: 135.5px; */
   font-weight: 700;
   padding-top: 50px;
+  background-color: #4b1f80;
+}
+.btnR9 img {
+  width: 9px;
+}
+.btnR9 .img2 {
+  width: 11px;
+}
+.btnRImg9 img {
+  width: 34px;
 }
 .count {
-  width: 21%;
-  height: 6.7%;
-  text-align: center;
-  line-height: 2.4;
-  background-color: #fe2247;
-  margin-bottom: 2%;
-  border-radius: 3px;
-  margin-left: 1%;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-  font-weight: 700;
+  /* border-left: 1px solid #06030c;
+  border-bottom: 1px solid #06030c; */
+  /*box-shadow: inset 0 0 0 1px #06030c;*/
+  border: 1px solid #06030c;
+  border-right: 0.5px solid #06030c;
+  /* width: 23%; */
+  height: 7.55%;
+  background-color: #8b1e39;
   cursor: pointer;
+  overflow: hidden;
+  text-align: center;
+  line-height: 3.5;
 }
+.count img {
+  width: 11px;
+}
+.count .img0 {
+  width: 13.5px;
+}
+.count .img2 {
+  width: 14px;
+}
+.count .img4 {
+  width: 13px;
+}
+.count .img6 {
+  width: 13px;
+}
+.count .img8 {
+  width: 12.5px;
+}
+.count .img5 {
+  width: 12px;
+}
+.count .img7 {
+  width: 12.5px;
+}
+.count .img3 {
+  width: 14px;
+}
+.count .img9 {
+  width: 13px;
+}
+
 .countColor {
-  width: 21%;
-  height: 6.7%;
-  margin-left: 1%;
+  /* border-left: 1px solid #06030c;
+  border-bottom: 1px solid #06030c; */
+  /*box-shadow: inset 0 0 0 1px #06030c;*/
+  border: 1px solid #06030c;
+  /* width: 23%; */
+  height: 7.55%;
   text-align: center;
-  line-height: 2.4;
-  background-color: #2f4553;
-  margin-bottom: 2%;
-  border-radius: 3px;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-  font-weight: 700;
+  background-color: #252a3e;
   cursor: pointer;
+  overflow: hidden;
+  border-right: 0.5px solid #06030c;
+  text-align: center;
+  line-height: 3.5;
+}
+.countColor img {
+  width: 11px;
+}
+.countColor .img0 {
+  width: 13.5px;
+}
+.countColor .img2 {
+  width: 14px;
+}
+.countColor .img4 {
+  width: 14px;
+}
+.countColor .img6 {
+  width: 13px;
+}
+.countColor .img8 {
+  width: 12.5px;
+}
+.countColor .img5 {
+  width: 12.5px;
+}
+.countColor .img7 {
+  width: 12.5px;
+}
+.countColor .img3 {
+  width: 14px;
+}
+.countColor .img9 {
+  width: 13px;
 }
 
 .bottomBgc1 .count {
+  box-sizing: border-box;
   width: 100%;
-  height: 7.4%;
+  height: 8.3%;
   text-align: center;
-  margin-bottom: 8.5%;
-  background-color: rgba(254, 110, 134, 1);
-  border-radius: 3px;
+  border: 1px solid #06030c;
+  border-right: 0.5px solid #06030c;
+  background-color: #8862b9;
 }
+.bottomBgc1 .count img {
+  width: 11px;
+}
+.bottomBgc1 .count .img0 {
+  width: 13.5px;
+}
+.bottomBgc1 .count .img2 {
+  width: 14px;
+}
+.bottomBgc1 .count .img4 {
+  width: 13px;
+}
+.bottomBgc1 .count .img6 {
+  width: 13px;
+}
+.bottomBgc1 .count .img8 {
+  width: 12.5px;
+}
+.bottomBgc1 .count .img5 {
+  width: 12px;
+}
+.bottomBgc1 .count .img7 {
+  width: 12.5px;
+}
+.bottomBgc1 .count .img3 {
+  width: 14px;
+}
+.bottomBgc1 .count .img9 {
+  width: 13px;
+}
+
 .bottomBgc1 .countColor {
+  box-sizing: border-box;
   width: 100%;
-  height: 7.4%;
+  height: 8.3%;
   text-align: center;
-  background-color: rgba(75, 110, 132, 1);
-  border-radius: 3px;
-  margin-bottom: 8.5%;
+  border: 1px solid #06030c;
+  border-right: 0.5px solid #06030c;
+  background-color: #676a78;
+}
+.bottomBgc1 .countColor img {
+  width: 11px;
+}
+.bottomBgc1 .countColor .img0 {
+  width: 13.5px;
+}
+.bottomBgc1 .countColor .img2 {
+  width: 14px;
+}
+.bottomBgc1 .countColor .img4 {
+  width: 14px;
+}
+.bottomBgc1 .countColor .img6 {
+  width: 13px;
+}
+.bottomBgc1 .countColor .img8 {
+  width: 12.5px;
+}
+.bottomBgc1 .countColor .img5 {
+  width: 12.5px;
+}
+.bottomBgc1 .countColor .img7 {
+  width: 12.5px;
+}
+.bottomBgc1 .countColor .img3 {
+  width: 14px;
+}
+.bottomBgc1 .countColor .img9 {
+  width: 13px;
 }
 .bottomBgc2 .count {
+  box-sizing: border-box;
   width: 100%;
-  height: 7.4%;
+  height: 8.3%;
   text-align: center;
-  margin-bottom: 8.5%;
-  background-color: rgba(254, 110, 134, 1);
-  border-radius: 3px;
+  border: 1px solid #06030c;
+  border-right: 0.5px solid #06030c;
+  background-color: #8862b9;
 }
+.bottomBgc2 .count img {
+  width: 11px;
+}
+.bottomBgc2 .count .img0 {
+  width: 13.5px;
+}
+.bottomBgc2 .count .img2 {
+  width: 14px;
+}
+.bottomBgc2 .count .img4 {
+  width: 13px;
+}
+.bottomBgc2 .count .img6 {
+  width: 13px;
+}
+.bottomBgc2 .count .img8 {
+  width: 12.5px;
+}
+.bottomBgc2 .count .img5 {
+  width: 12px;
+}
+.bottomBgc2 .count .img7 {
+  width: 12.5px;
+}
+.bottomBgc2 .count .img3 {
+  width: 14px;
+}
+.bottomBgc2 .count .img9 {
+  width: 13px;
+}
+
 .bottomBgc2 .countColor {
+  box-sizing: border-box;
   width: 100%;
-  height: 7.4%;
+  height: 8.3%;
   text-align: center;
-  background-color: rgba(75, 110, 132, 1);
-  border-radius: 3px;
-  margin-bottom: 8.5%;
+  border: 1px solid #06030c;
+  border-right: 0.5px solid #06030c;
+  background-color: #676a78;
+}
+.bottomBgc2 .countColor img {
+  width: 11px;
+}
+.bottomBgc2 .countColor .img0 {
+  width: 13.5px;
+}
+.bottomBgc2 .countColor .img2 {
+  width: 14px;
+}
+.bottomBgc2 .countColor .img4 {
+  width: 14px;
+}
+.bottomBgc2 .countColor .img6 {
+  width: 13px;
+}
+.bottomBgc2 .countColor .img8 {
+  width: 12.5px;
+}
+.bottomBgc2 .countColor .img5 {
+  width: 12.5px;
+}
+.bottomBgc2 .countColor .img7 {
+  width: 12.5px;
+}
+.bottomBgc2 .countColor .img3 {
+  width: 14px;
+}
+.bottomBgc2 .countColor .img9 {
+  width: 13px;
 }
 .bottomBgc3 .count {
+  box-sizing: border-box;
   width: 100%;
-  height: 7.4%;
+  height: 8.3%;
   text-align: center;
-  margin-bottom: 8.5%;
-  background-color: rgba(254, 110, 134, 1);
-  border-radius: 3px;
+  border: 1px solid #06030c;
+  border-right: 0.5px solid #06030c;
+  background-color: #8862b9;
+}
+
+.bottomBgc3 .count img {
+  width: 11px;
+}
+.bottomBgc3 .count .img0 {
+  width: 13.5px;
+}
+.bottomBgc3 .count .img2 {
+  width: 14px;
+}
+.bottomBgc3 .count .img4 {
+  width: 13px;
+}
+.bottomBgc3 .count .img6 {
+  width: 13px;
+}
+.bottomBgc3 .count .img8 {
+  width: 12.5px;
+}
+.bottomBgc3 .count .img5 {
+  width: 12px;
+}
+.bottomBgc3 .count .img7 {
+  width: 12.5px;
+}
+.bottomBgc3 .count .img3 {
+  width: 14px;
+}
+.bottomBgc3 .count .img9 {
+  width: 13px;
 }
 .bottomBgc3 .countColor {
+  box-sizing: border-box;
   width: 100%;
-  height: 7.4%;
+  height: 8.3%;
   text-align: center;
-  background-color: rgba(75, 110, 132, 1);
-  border-radius: 3px;
-  margin-bottom: 8.5%;
+  border: 1px solid #06030c;
+  border-right: 0.5px solid #06030c;
+  background-color: #676a78;
+}
+.bottomBgc3 .countColor img {
+  width: 11px;
+}
+.bottomBgc3 .countColor .img0 {
+  width: 13.5px;
+}
+.bottomBgc3 .countColor .img2 {
+  width: 14px;
+}
+.bottomBgc3 .countColor .img4 {
+  width: 14px;
+}
+.bottomBgc3 .countColor .img6 {
+  width: 13px;
+}
+.bottomBgc3 .countColor .img8 {
+  width: 12.5px;
+}
+.bottomBgc3 .countColor .img5 {
+  width: 12.5px;
+}
+.bottomBgc3 .countColor .img7 {
+  width: 12.5px;
+}
+.bottomBgc3 .countColor .img3 {
+  width: 14px;
+}
+.bottomBgc3 .countColor .img9 {
+  width: 13px;
 }
 .countBl {
-  width: 21%;
+  width: 23%;
   height: 6.7%;
   text-align: center;
-  line-height: 2;
   margin-top: 2%;
-  margin-left: 1%;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   box-shadow: inset 0 0 0 1.5px #2f4553;
   font-weight: 700;
-  border-radius: 3px;
+
   color: #fff;
   cursor: pointer;
 }
 .r0 {
   position: absolute;
-  right: 1%;
-  top: -8.1%;
-  width: 67%;
+  right: 0%;
+  top: -7.2%;
+  width: 69%;
   height: 7.1%;
-  line-height: 2.4;
   background-color: #419e3f;
   text-align: center;
   font-weight: 700;
-  border-radius: 3px;
   color: #fff;
   white-space: nowrap;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   cursor: pointer;
+  background-color: #4b1f80;
+  border: 1px solid #06030c;
+  line-height: 3.3;
 }
 .r0:hover {
-  background-color: rgba(105, 194, 103, 1);
+  background-color: #8862b9;
+}
+.r0 img {
+  width: 13px;
 }
 .countBottom1 {
-  width: 21%;
-  height: 6.7%;
-  margin-left: 1%;
+  width: 23%;
+  height: 7%;
   text-align: center;
-  line-height: 2.4;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-  box-shadow: inset 0 0 0 1.5px #2f4553;
   font-weight: 700;
-  border-radius: 3px;
   color: #fff;
   cursor: pointer;
+  border-bottom: 0;
+  line-height: 2.5;
+  background-color: #4b1f80;
+  border: 1px solid #06030c;
+  border-bottom: 1px solid transparent;
+}
+.countBottom1 img {
+  width: 14px;
+  vertical-align: bottom;
+}
+.countBottom1 .img_ {
+  width: 7px;
+  vertical-align: bottom;
+  transform: translateY(2px);
+}
+.countBottom1 .img1 {
+  width: 11px;
 }
 .countBottom2 {
-  width: 21%;
-  height: 6.7%;
-  margin-left: 1%;
+  width: 23%;
+  height: 7%;
   text-align: center;
-  line-height: 2.4;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-  box-shadow: inset 0 0 0 1.5px #2f4553;
   font-weight: 700;
-  border-radius: 3px;
   color: #fff;
   cursor: pointer;
+  line-height: 2.5;
+  background-color: #4b1f80;
+  border: 1px solid #06030c;
+  border-bottom: 1px solid transparent;
+}
+.countBottom2 img {
+  width: 14px;
+  vertical-align: bottom;
+}
+.countBottom2 .img_ {
+  width: 7px;
+  vertical-align: bottom;
+  transform: translateY(2px);
+}
+.countBottom2 .img1 {
+  width: 11px;
 }
 .countBottom3 {
-  width: 21%;
-  height: 6.7%;
-  margin-left: 1%;
+  width: 23%;
+  height: 7%;
   text-align: center;
-  line-height: 2.4;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-  box-shadow: inset 0 0 0 1.5px #2f4553;
+  /* text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); */
+  /* box-shadow: inset 0 0 0 1.5px #2f4553; */
   font-weight: 700;
-  border-radius: 3px;
   color: #fff;
   cursor: pointer;
+  background-color: #4b1f80;
+  line-height: 2.5;
+  border: 1px solid #06030c;
+  border-bottom: 1px solid transparent;
+}
+.countBottom3 img {
+  width: 14px;
+  vertical-align: bottom;
+}
+.countBottom3 .img_ {
+  width: 7px;
+  vertical-align: bottom;
+  transform: translateY(2px);
+}
+.countBottom3 .img1 {
+  width: 11px;
+}
+.imgZc1 {
+  border-top: 12px solid #4b1f80;
+  border-right: 29px solid transparent;
+  border-bottom: 0px solid transparent;
+  border-left: 30px solid transparent;
+  transform: translateY(-1px);
+}
+.imgZc2 {
+  border-top: 12px solid #4b1f80;
+  border-right: 29px solid transparent;
+  border-bottom: 0px solid transparent;
+  border-left: 30px solid transparent;
+  transform: translateY(-1px);
+}
+.imgZc3 {
+  border-top: 12px solid #4b1f80;
+  border-right: 29px solid transparent;
+  border-bottom: 0px solid transparent;
+  border-left: 30px solid transparent;
+  transform: translateY(-1px);
+}
+.bottomS {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: 30px;
+  border-top: 30px solid yellow;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 30px solid transparent;
 }
 .countBox {
   width: 15%;
-  height: 31.5px;
+  height: 41px;
 }
 .countBottom1:hover {
-  background-color: rgba(47, 69, 83, 1);
+  background-color: #8862b9;
+}
+.countBottom1:hover ~ .imgZc1 {
+  border-top: 11px solid #8862b9;
 }
 .countBottom1:hover ~ .oneTwo1 {
-  background-color: rgba(254, 110, 134, 1) !important;
+  background-color: #b76578 !important;
 }
 .countBottom1:hover ~ .oneTwo1Rc {
-  background-color: rgba(75, 110, 132, 1);
+  background-color: #676a78;
 }
 .countBottom2:hover {
-  background-color: rgba(47, 69, 83, 1);
+  background-color: #8862b9;
+}
+.countBottom2:hover ~ .imgZc2 {
+  border-top: 11px solid #8862b9;
 }
 .countBottom2:hover ~ .to235 {
-  background-color: rgba(254, 110, 134, 1);
+  background-color: #b76578;
 }
 .countBottom2:hover ~ .to235Rc {
-  background-color: rgba(75, 110, 132, 1);
+  background-color: #676a78;
 }
 .countBottom3:hover {
-  background-color: rgba(47, 69, 83, 1);
+  background-color: #8862b9;
+}
+.countBottom3:hover ~ .imgZc3 {
+  border-top: 11px solid #8862b9;
 }
 .countBottom3:hover ~ .to336 {
-  background-color: rgba(254, 110, 134, 1);
+  background-color: #b76578;
 }
 .countBottom3:hover ~ .to336Rc {
-  background-color: rgba(75, 110, 132, 1);
+  background-color: #676a78;
 }
 .bottomBgc1 {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   position: absolute;
-  right: 46.59%;
+  right: 46%;
   top: 0;
-  width: 21%;
-  height: 92%;
+  width: 23.1%;
+  height: 91%;
   opacity: 0;
   display: none;
 }
@@ -1028,10 +1521,10 @@ watch(props, () => {
 }
 .bottomBgc2 {
   position: absolute;
-  right: 23.8%;
+  right: 23%;
   top: 0;
-  width: 21%;
-  height: 92%;
+  width: 23%;
+  height: 91%;
   opacity: 0;
   display: none;
 }
@@ -1041,15 +1534,23 @@ watch(props, () => {
 }
 .bottomBgc3 {
   position: absolute;
-  right: 1%;
+  right: 0%;
   top: 0;
-  width: 21%;
-  height: 92%;
+  width: 23%;
+  height: 91%;
   opacity: 0;
   display: none;
 }
 .countBottom3:hover ~ .bottomBgc3 {
   opacity: 1;
   display: block;
+}
+img {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  pointer-events: none !important;
+}
+img:active {
+  -webkit-transform: scale(1);
 }
 </style>

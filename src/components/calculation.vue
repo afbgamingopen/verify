@@ -1,5 +1,5 @@
 <script setup>
-import { reactive } from "vue";
+import { reactive, ref } from "vue";
 import { parseQuery } from "vue-router";
 import hmacSHA256 from "crypto-js/hmac-sha256";
 
@@ -36,7 +36,6 @@ const data = reactive({
   kenoCalcResult: [],
   kenoFinalResult: [],
 });
-
 function handleChange() {
   calc();
 }
