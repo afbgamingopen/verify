@@ -270,7 +270,7 @@ function calcCrash() {
     (hmacDigestBytes[3] >> 4) * Math.pow(16, 1) +
     (hmacDigestBytes[3] & 0xf) * Math.pow(16, 0);
   data.result = result;
-  data.finalResult = (4294967296 / (result + 1)) * (1 - 0.03);
+  data.finalResult = (4294967296 / (result + 1)) * (1 - 0.02);
 }
 
 function calcKeno() {
